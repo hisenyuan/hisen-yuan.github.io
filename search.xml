@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[List 去重 | List对象去重 by java8 stream & lambda]]></title>
+    <url>%2F20180712-List-Object-%E5%8E%BB%E9%87%8D-List%E5%AF%B9%E8%B1%A1%E5%8E%BB%E9%87%8D-by-java8-stream-lambda%2F</url>
+    <content type="text"><![CDATA[利用java8的流和lambda表达式能很方便的对list对象进行去重而且不会造成代码入侵插播：Java8 对List进行求和、分组、提取对象单个属性：https://www.jianshu.com/p/c71eaeaaf30c下面的例子仅供参考github：https://github.com/hisenyuan12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788package com.hisen.collection.list.duplicate;import com.alibaba.rocketmq.shade.com.alibaba.fastjson.JSON;import java.util.ArrayList;import java.util.List;import java.util.concurrent.ConcurrentHashMap;import java.util.function.Function;import java.util.function.Predicate;import java.util.stream.Collectors;/** * @author hisenyuan * @time 2018/4/19 14:06 * @description list对象根据属性去重 lambda + stream */public class ListDuplicateTest &#123; public static void main(String[] args) &#123; List&lt;Person&gt; list = new ArrayList&lt;&gt;(); for (int i = 0; i &lt; 100; i++) &#123; Person person = new Person(); person.setAge(10); person.setName(&quot;hsien&quot;); person.setWeight(i); list.add(person); &#125; Person bean = new Person(); bean.setName(&quot;hisenyuan&quot;); bean.setAge(33); bean.setWeight(65); list.add(bean); List&lt;Person&gt; collect = list.stream().filter(distinctByKey(Person::getName)) .collect(Collectors.toList()); System.out.println(JSON.toJSONString(collect)); &#125; /** * 函数式接口 T -&gt; bollean * @param keyExtractor * @param &lt;T&gt; * @return */ public static &lt;T&gt; Predicate&lt;T&gt; distinctByKey(Function&lt;? super T, ?&gt; keyExtractor) &#123; ConcurrentHashMap&lt;Object, Boolean&gt; map = new ConcurrentHashMap&lt;&gt;(16); return t -&gt; map.putIfAbsent(keyExtractor.apply(t),Boolean.TRUE) == null;// 这个也可以，不过感觉效率要低一些，线程不是那么安全// Set&lt;Object&gt; seen = ConcurrentHashMap.newKeySet();// return t -&gt; seen.add(keyExtractor.apply(t)); &#125; /** * 内部类 */ static class Person &#123; private int age; private String name; private int weight; public int getAge() &#123; return age; &#125; public void setAge(int age) &#123; this.age = age; &#125; public String getName() &#123; return name; &#125; public void setName(String name) &#123; this.name = name; &#125; public int getWeight() &#123; return weight; &#125; public Person() &#123; &#125; public void setWeight(int weight) &#123; this.weight = weight; &#125; &#125;&#125;]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Linux|mac查找目录下文件内容中包含某字符串的命令]]></title>
     <url>%2F20180712-Linux-mac%E6%9F%A5%E6%89%BE%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%96%87%E4%BB%B6%E4%B8%AD%E5%8C%85%E5%90%AB%E6%9F%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[1grep -r hisen ./上面这条命令。直接查找当前目录下所有内容中包含 hisen 的文件]]></content>
@@ -136,8 +141,8 @@
         <category>sql</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>sql</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -148,8 +153,8 @@
         <category>sql</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>sql</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -568,8 +573,8 @@
         <category>sql</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>sql</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -1021,8 +1026,8 @@
         <category>sql</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>sql</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
