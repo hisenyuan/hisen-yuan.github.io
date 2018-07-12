@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>http://hisen.me/20180713-Get%E5%8F%82%E6%95%B0%E4%B8%B2KV%E4%B8%8EMap%E4%BA%92%E8%BD%AC%20-%20%E5%88%A9%E7%94%A8java8%20Stream/</loc>
+        <lastmod>2018-07-12T16:27:00.927Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://hisen.me/20170208-eclipse%E6%97%A0%E6%B3%95%E9%93%BE%E6%8E%A5github/</loc>
+        <lastmod>2018-07-12T16:23:31.636Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://hisen.me/20180712-Java%E8%B0%83%E7%94%A8%E6%9C%89%E9%81%93%E7%BF%BB%E8%AF%91%E6%8E%A5%E5%8F%A3-%E5%85%8D%E8%B4%B9%E7%BF%BB%E8%AF%91API/</loc>
         <lastmod>2018-07-12T15:37:06.054Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1209,14 +1225,6 @@
     <url>
         <loc>http://hisen.me/20170208-log4j-WARN-No-appenders-could-be-found-for-logger/</loc>
         <lastmod>2017-02-08T12:58:08.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://hisen.me/20170208-eclipse%E6%97%A0%E6%B3%95%E9%93%BE%E6%8E%A5github/</loc>
-        <lastmod>2017-02-08T12:56:50.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
