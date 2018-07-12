@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://hisen.me/20180712-Java%E8%B0%83%E7%94%A8%E6%9C%89%E9%81%93%E7%BF%BB%E8%AF%91%E6%8E%A5%E5%8F%A3-%E5%85%8D%E8%B4%B9%E7%BF%BB%E8%AF%91API/</loc>
+        <lastmod>2018-07-12T15:37:06.054Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://hisen.me/20180712-List-Object-%E5%8E%BB%E9%87%8D-List%E5%AF%B9%E8%B1%A1%E5%8E%BB%E9%87%8D-by-java8-stream-lambda/</loc>
         <lastmod>2018-07-11T19:51:23.636Z</lastmod>
         <changefreq>weekly</changefreq>
