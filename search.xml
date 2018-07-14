@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[多线程：优雅的使用ExecutorService进行压力测试]]></title>
+    <url>%2F20180714-%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%9A%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8ExecutorService%E8%BF%9B%E8%A1%8C%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%2F</url>
+    <content type="text"><![CDATA[很多时候写功能或者接口需要进行压力测试，今天发现jwt在生成token的时候，如果输入都是一样的仅有一个签发时间不一样，生成的token是有可能是一样的1234567891011121314151617181920212223public void testCreate() &#123; ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("hisenyuan").build(); ExecutorService pool = new ThreadPoolExecutor( 20, 50, 10000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue&lt;&gt;(10240), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy()); for (int i = 0; i &lt; 50; i++) &#123; // 需要提交的内容 pool.execute(this::createTokenTest); &#125; pool.shutdown(); try &#123; while (!pool.awaitTermination(500, TimeUnit.MILLISECONDS)) &#123; LOGGER.debug("Waiting for terminate"); &#125; &#125; catch (InterruptedException e) &#123; LOGGER.error(e); &#125; &#125;]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[SpringMVC redirect & return JSON & set HTTP code]]></title>
     <url>%2F20180713-SpringMVC%20redirect%20%26%20return%20JSON%20%26%20set%20HTTP%20code%2F</url>
     <content type="text"><![CDATA[springmvc正常情况下redirect并且设置指定响应码，异常情况下返回json数据背景介绍需求就是正常情况下能redirect到指定的页面异常的情况下，能够返回JSON格式的错误信息正常情况和异常情况都需要设置HTTP Code代码实现12345678910111213141516@RequestMapping(value = "/test", method = RequestMethod.POST)public String webCharge(HttpServletRequest request, HttpServletResponse response) &#123; if (1==1) &#123; response.setStatus(200); return "redirect:https://github.com/hisenyuan"; &#125; else &#123; try &#123; response.setStatus(405); response.getWriter().write(JSON.toJSONString("hisenyuan")); return null; &#125; catch (IOException e) &#123; e.printStackTrace(); return ""; &#125; &#125;&#125;]]></content>
