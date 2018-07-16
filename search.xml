@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>%2F20180716-Hexo%E6%96%B0%E7%8E%A9%E6%B3%95%20-%20Atom%20%2B%20platformio-ide-terminal%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[多线程：优雅的使用ExecutorService进行压力测试]]></title>
     <url>%2F20180714-%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%9A%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8ExecutorService%E8%BF%9B%E8%A1%8C%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%2F</url>
     <content type="text"><![CDATA[很多时候写功能或者接口需要进行压力测试，今天发现jwt在生成token的时候，如果输入都是一样的仅有一个签发时间不一样，生成的token是有可能是一样的1234567891011121314151617181920212223public void testCreate() &#123; ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("hisenyuan").build(); ExecutorService pool = new ThreadPoolExecutor( 20, 50, 10000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue&lt;&gt;(10240), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy()); for (int i = 0; i &lt; 50; i++) &#123; // 需要提交的内容 pool.execute(this::createTokenTest); &#125; pool.shutdown(); try &#123; while (!pool.awaitTermination(500, TimeUnit.MILLISECONDS)) &#123; LOGGER.debug("Waiting for terminate"); &#125; &#125; catch (InterruptedException e) &#123; LOGGER.error(e); &#125; &#125;]]></content>
@@ -1387,8 +1392,8 @@
         <category>软件</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
         <tag>hexo优化</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1583,8 +1588,8 @@
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
         <tag>hexo优化</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1652,8 +1657,8 @@
     <url>%2F20170208-eclipse%E6%97%A0%E6%B3%95%E9%93%BE%E6%8E%A5github%2F</url>
     <content type="text"><![CDATA[浏览器什么的都能打开github.com就是eclipse无法提交到github，每次都是连接超时然后就直接修改host了，目前有效2017年1月14日 18:01:34host位置：1C:\Windows\System32\drivers\etchost文件最后一行加上下面内容即可1192.30.253.112 github.com]]></content>
       <tags>
-        <tag>eclipse</tag>
         <tag>github</tag>
+        <tag>eclipse</tag>
       </tags>
   </entry>
   <entry>
@@ -1738,8 +1743,8 @@
     <content type="text"><![CDATA[准备工作Node.js：点击下载git：点击下载MarkdownPad：点击下载安装好上面三个工具可能会遇到的问题：1、Git Bash执行node -v提示无效 或者 npm install 报 command not found解决办法：在环境变量 - 用户变量中 - 新建用户变量 - 添加nodejs安装路径如：C:\tool\nodejs2、ERROR Deployer not found : github解决办法：配置文件有问题，冒号后面都有一个空格的执行：npm install hexo-deployer-git –save （这命令是为了解决hexo新版本的部署问题）3使用淘宝镜像加快安装速度安装cnpm，使用命令：1npm install cnpm -g --registry=https://registry.npm.taobao.org安装过程打开Git Bash进入nodejs安装目录开始安装hexo，输入下面代码npm install -g hexo#等待安装完成，这个过程可能会快也可能很慢，耐心等待mkdir blog &amp;&amp; cd blog #上面这个代码是创建一个博客存放的目录hexo init#初始化cnpm install #安装依赖包完成之后，本地博客就搭建完成hexo g #生成静态页面hexo s #启动服务器，打开http://localhost:4000 就是本地博客本地博客安装完成，下面介绍发布到github上登陆github，没有就注册点击右上角加号+Create a new repository名字写：yourgithubname.github.io创建完成点击Setting选择一个主题，然后就好了编辑blog文件夹里面的_config.yml配置文件最后面添加1234deploy: type: git repository: http://github.com/yourname/yourname.github.io.git branch: master最后执行hexo g#重新生成静态博客hexo d#将本地静态博客部署到github现在你在浏览器打开：http://yourname.github.io就可以访问你的博客了到此为止就搭建完了一个博客开始写第一篇文章：执行：hexo new “你的文章标题”然后你在blog/source/_posts文件夹下面有文件，用markdownpad打开编辑执行：hexo g#重新生成hexo s#本地查看效果hexo d#上传到github或者不预览，直接一步上传到github：hexo d -g]]></content>
       <tags>
         <tag>hexo</tag>
-        <tag>github</tag>
         <tag>安装</tag>
+        <tag>github</tag>
       </tags>
   </entry>
   <entry>

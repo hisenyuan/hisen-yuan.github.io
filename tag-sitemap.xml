@@ -527,14 +527,14 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/eclipse/</loc>
+        <loc>http://hisen.me/tags/github/</loc>
         <lastmod>2018-07-12T16:23:31.636Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/github/</loc>
+        <loc>http://hisen.me/tags/eclipse/</loc>
         <lastmod>2018-07-12T16:23:31.636Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
