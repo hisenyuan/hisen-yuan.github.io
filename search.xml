@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
+    <title><![CDATA[Hexo新玩法 - Atom + platformio-ide-terminal]]></title>
     <url>%2F20180716-Hexo%E6%96%B0%E7%8E%A9%E6%B3%95%20-%20Atom%20%2B%20platformio-ide-terminal%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[最近在慢慢适应mbp然后就在研究怎么方便的写博客首先就是找了几款markdown编辑器，发现GitHub出品的Atom还不错插件很丰富，然而下载了第一个terminal插件但是无效，一度折腾了很久后来搜索了一下，发现这个插件很不错：platformio-ide-terminal利用快捷键：control + 点(1左边那个)就可以在当前界面呼出终端，而且是当前目录也就是在_post目录下，写完了之后执行命令就上传了还是很方便的。后续还需要慢慢熟悉更多的插件与工具]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[多线程：优雅的使用ExecutorService进行压力测试]]></title>
