@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[FindLucklyGirl - 找出值班的幸运儿]]></title>
+    <url>%2F20180720-FindLucklyGirl%20-%20%E6%89%BE%E5%87%BA%E5%80%BC%E7%8F%AD%E7%9A%84%E5%B9%B8%E8%BF%90%E5%84%BF%2F</url>
+    <content type="text"><![CDATA[一、背景简介今天头给我们开会，说到团队对外沟通的问题。谈到对外需要积极给人解决问题，而不是各种推脱，即使自己不知道，也可以给个眼神找到对的人。继而谈到需要安排人轮流负责跟外部接洽由于这个活呢，大伙儿认为不是什么好差事，那就抓阄决定吧于是乎就感觉可以写一个简单的排班系统小bug，不过我这里只是提供一个简单的思路二、程序代码主要的逻辑在这，当然并没有考虑数据持久化的问题性能等其他的问题，纯粹是一个思路，用hashCode取模主要是打的比较散，很均匀加上日期什么的，就一个排班表出来了。123456789101112131415161718192021222324252627282930/** * * @param person 目前所有的人 * @param lucklys 这一轮已经值班了的人 */private static void findLucklyOneByHashCode(List&lt;String&gt; person, ArrayList&lt;String&gt; lucklys) &#123; List&lt;String&gt; result = new ArrayList&lt;&gt;(person); result.removeAll(lucklys); if (result.size() == 0) &#123; lucklys.clear(); result = new ArrayList&lt;&gt;(person); &#125; String code = System.nanoTime() + UUID.randomUUID().toString(); int index = Math.abs(code.hashCode()) % result.size(); String lucklyOne = result.get(index); System.out.println("lucklyOne:" + lucklyOne); lucklys.add(lucklyOne);&#125;/** * hashCode随机取出来的数据 * lucklyOne:G * lucklyOne:B * lucklyOne:C * lucklyOne:D * lucklyOne:H * lucklyOne:F * lucklyOne:E * lucklyOne:A */]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[iTerm2自动连接远程服务器]]></title>
     <url>%2F20180720-iTerm2%E8%87%AA%E5%8A%A8%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%2F</url>
     <content type="text"><![CDATA[mac自带的终端总感觉不大好用，于是乎就被安利了iTerm2然后就搜了下自动连接远程服务，于是就发现了一个不错的脚步整个设置过程还是比较顺畅，操作步骤：新建一个sh文件1vi auto_ssh.sh输入如下内容，[lindex $argv 0] 这个为第一个参数的占位符1234567891011#!/usr/bin/expectset timeout 30spawn ssh -p[lindex $argv 0] [lindex $argv 1]@[lindex $argv 2]expect &#123;"(yes/no)?"&#123;send "yes\n";exp_continue&#125;"password:"&#123;send "[lindex $argv 3]\n"&#125;&#125;interact复制脚本到bin下并且赋予执行权限123sudo cp auto_ssh.sh /usr/local/bin/cd /usr/local/bin/sudo chmod +x auto_ssh.sh设置在iTerm2中Command+o呼出profile12345678910111213# 界面右下角，点击：edit profiles# 界面左下角，点击：+# 界面上方，点击：General# 界面靠上，写这个登录的名字：name# 界面中间，点击选择：Login shell# 找到这个提示符：Send text at start，输入如下字符auto_ssh.sh 8022 root 10.10.20.20 hisenyuan# 脚本名称 端口 用户名 ip地址 密码运行设置完了之后，关闭窗口，重新command+o呼出配置文件，双击刚刚配置的即可自动登录]]></content>
