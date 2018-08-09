@@ -3,6 +3,21 @@
   
     
     <entry>
+      <title>聚合支付 - 账务系统 - 线上事故记录 - 死锁</title>
+      <link href="/20180809-%E8%81%9A%E5%90%88%E6%94%AF%E4%BB%98%20-%20%E8%B4%A6%E5%8A%A1%E7%B3%BB%E7%BB%9F%20-%20%E7%BA%BF%E4%B8%8A%E4%BA%8B%E6%95%85%E8%AE%B0%E5%BD%95%20-%20%E6%AD%BB%E9%94%81/"/>
+      <url>/20180809-%E8%81%9A%E5%90%88%E6%94%AF%E4%BB%98%20-%20%E8%B4%A6%E5%8A%A1%E7%B3%BB%E7%BB%9F%20-%20%E7%BA%BF%E4%B8%8A%E4%BA%8B%E6%95%85%E8%AE%B0%E5%BD%95%20-%20%E6%AD%BB%E9%94%81/</url>
+      <content type="html"><![CDATA[<!-- build time:Thu Aug 09 2018 23:40:26 GMT+0800 (China Standard Time) --><h1 id="一、背景描述"><a href="#一、背景描述" class="headerlink" title="一、背景描述"></a>一、背景描述</h1><p>在支付业务当中，每一笔交易都得进行记账。</p><p>两种情况：</p><ol><li>第一步先冻结，交易成功，解冻并扣款(A账户-&gt;B账户-&gt;C账户);</li><li>第一步先冻结，交易失败，解冻并归还(A账户-&gt;B账户-&gt;A账户);</li></ol><p>上面的两种情况各自都是在一个事物当中。</p><h1 id="二、问题描述"><a href="#二、问题描述" class="headerlink" title="二、问题描述"></a>二、问题描述</h1><p>在同一个商户进行并发操作的时候，交易有成功有失败；</p><ol><li>成功的时候钱是：A账户-&gt;B账户;</li><li>失败的时候钱是：B账户-&gt;A账户;</li></ol><p>因为在各自的事物当中更新两条记录的信息，并且使用了for update 进行并发控制</p><p>在某一瞬间：成功的先锁A账户，失败的先锁了B记录</p><p>接下来就两个事物各自持有对方想要的资源，并且不释放已经占有的资源，就造成了死锁</p><h1 id="三、解决方法"><a href="#三、解决方法" class="headerlink" title="三、解决方法"></a>三、解决方法</h1><p>在程序里面，更新两个账户的钱的时候，始终先更新ID更小的那条记录，那样不管多少个事务同事进来</p><p>都会按照固定的顺序去持有资源，比如先A再B，这样就不会出现各自持有对方想要的资源<br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ID ACC</span><br><span class="line">10 A</span><br><span class="line">11 B</span><br></pre></td></tr></table></figure><p></p><p>每个事务都是先锁定A再锁定B，拿不到锁就一直等待</p><!-- rebuild by neat -->]]></content>
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    <entry>
       <title>WebSocket - Java &amp; html &amp; JavaScript - 单发 &amp; 群发</title>
       <link href="/20180728-WebSocket%20-%20Java%20&amp;%20html%20&amp;%20JavaScript%20-%20%E5%8D%95%E5%8F%91%20&amp;%20%E7%BE%A4%E5%8F%91/"/>
       <url>/20180728-WebSocket%20-%20Java%20&amp;%20html%20&amp;%20JavaScript%20-%20%E5%8D%95%E5%8F%91%20&amp;%20%E7%BE%A4%E5%8F%91/</url>
