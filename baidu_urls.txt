@@ -1,1 +1,1 @@
-http://hisen.me/20180908-mac安装Go环境 & IDE(GoLand) & 基本运行方法/
+http://hisen.me/20180908-《Go语言程序设计》 - ch1:lissajous - GIF动画/
