@@ -1,1 +1,1 @@
-http://hisen.me/20180809-线上事故记录 - 死锁/
+http://hisen.me/20180908-mac安装Go环境 & IDE(GoLand) & 基本运行方法/

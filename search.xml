@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[mac安装Go环境 & IDE(GoLand) & 基本运行方法]]></title>
+    <url>%2F20180908-mac%E5%AE%89%E8%A3%85Go%E7%8E%AF%E5%A2%83%20%26%20IDE(GoLand)%20%26%20%E5%9F%BA%E6%9C%AC%E8%BF%90%E8%A1%8C%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[##]]></content>
+      <categories>
+        <category>go</category>
+      </categories>
+      <tags>
+        <tag>go</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[线上事故记录 - 死锁]]></title>
     <url>%2F20180809-%E7%BA%BF%E4%B8%8A%E4%BA%8B%E6%95%85%E8%AE%B0%E5%BD%95%20-%20%E6%AD%BB%E9%94%81%2F</url>
     <content type="text"><![CDATA[一、背景描述在支付业务当中，每一笔交易都得进行记账。两种情况：第一步先冻结，交易成功，解冻并扣款(A账户-&gt;B账户-&gt;C账户);第一步先冻结，交易失败，解冻并归还(A账户-&gt;B账户-&gt;A账户);上面的两种情况各自都是在一个事物当中。二、问题描述在同一个商户进行并发操作的时候，交易有成功有失败；成功的时候钱是：A账户-&gt;B账户;失败的时候钱是：B账户-&gt;A账户;因为在各自的事物当中更新两条记录的信息，并且使用了for update（innodb引擎）ß在某一瞬间：成功的先锁A账户，失败的先锁了B记录接下来就两个事物各自持有对方想要的资源，并且不释放已经占有的资源，就造成了死锁三、解决方法在程序里面，更新两个账户的钱的时候，始终先更新ID更小的那条记录，那样不管多少个事务同时进来都会按照固定的顺序去持有资源，比如先A再B，这样就不会出现各自持有对方想要的资源123ID ACCOUNT10 A11 B每个事务都是先锁定A再锁定B，拿不到锁就一直等待]]></content>
