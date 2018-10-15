@@ -105,13 +105,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/categories/java/</loc>
-        <lastmod>2018-07-28T08:21:13.571Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/categories/Java/</loc>
         <lastmod>2018-08-18T09:49:20.582Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -128,6 +121,13 @@
     <url>
         <loc>http://hisen.me/categories/reading/</loc>
         <lastmod>2018-10-02T16:36:11.006Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/categories/java/</loc>
+        <lastmod>2018-10-15T06:20:58.603Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
