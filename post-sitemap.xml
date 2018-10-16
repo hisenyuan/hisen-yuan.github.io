@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://hisen.me/20181016-MySQL%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E6%95%B0%E6%8D%AE,%E4%BF%9D%E7%95%99id%E6%9C%80%E5%B0%8F%E7%9A%84%E4%B8%80%E6%9D%A1/</loc>
+        <lastmod>2018-10-16T02:14:08.021Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://hisen.me/20181015-Could%20not%20initialize%20class%20io.jsonwebtoken.impl.DefaultJwtBuilder/</loc>
         <lastmod>2018-10-15T06:20:58.603Z</lastmod>
         <changefreq>weekly</changefreq>
