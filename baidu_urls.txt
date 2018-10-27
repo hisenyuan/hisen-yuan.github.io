@@ -1,1 +1,1 @@
-http://hisen.me20181027-gop1.io:ch1:dup2:dup2.go - go程序设计语言练习 - 同统计重复/
+http://hisen.me/20181027-go程序设计语言练习 - 同统计重复/
