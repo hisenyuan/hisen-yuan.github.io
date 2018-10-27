@@ -548,13 +548,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/go/</loc>
-        <lastmod>2018-09-08T15:43:54.778Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/%E7%A9%BF%E5%B8%83%E9%9E%8B%E7%9A%84%E9%A9%AC%E4%BA%91/</loc>
         <lastmod>2018-10-02T16:36:11.006Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -571,6 +564,13 @@
     <url>
         <loc>http://hisen.me/tags/mysql%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E6%95%B0%E6%8D%AE/</loc>
         <lastmod>2018-10-16T02:14:08.021Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/go/</loc>
+        <lastmod>2018-10-27T05:42:11.635Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

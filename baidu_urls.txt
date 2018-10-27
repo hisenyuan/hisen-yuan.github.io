@@ -1,1 +1,1 @@
-http://hisen.me/20181016-MySQL批量删除重复数据,保留id最小的一条/
+http://hisen.me20181027-gop1.io:ch1:dup2:dup2.go - go程序设计语言练习 - 同统计重复/
