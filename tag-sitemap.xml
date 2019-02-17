@@ -485,20 +485,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/sql/</loc>
-        <lastmod>2018-07-17T15:45:30.835Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hisen.me/tags/mysql/</loc>
-        <lastmod>2018-07-17T15:45:35.572Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/oracle/</loc>
         <lastmod>2018-07-17T15:45:35.572Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -578,6 +564,20 @@
     <url>
         <loc>http://hisen.me/tags/docker/</loc>
         <lastmod>2018-12-21T16:00:54.722Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/mysql/</loc>
+        <lastmod>2019-02-17T16:28:46.909Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/sql/</loc>
+        <lastmod>2019-02-17T16:28:46.909Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
