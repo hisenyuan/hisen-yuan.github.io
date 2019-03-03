@@ -7,15 +7,15 @@
     </url>
     
     <url>
-        <loc>http://hisen.me/about/</loc>
-        <lastmod>2019-02-23T15:31:03.517Z</lastmod>
+        <loc>http://hisen.me/booklist/</loc>
+        <lastmod>2019-03-03T08:53:02.244Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>http://hisen.me/booklist/</loc>
-        <lastmod>2019-02-23T14:38:46.688Z</lastmod>
+        <loc>http://hisen.me/about/</loc>
+        <lastmod>2019-02-23T15:31:03.517Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
