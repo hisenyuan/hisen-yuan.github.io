@@ -569,14 +569,14 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/dubbo/</loc>
+        <loc>http://hisen.me/tags/netty/</loc>
         <lastmod>2019-03-07T12:10:30.375Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/netty/</loc>
+        <loc>http://hisen.me/tags/dubbo/</loc>
         <lastmod>2019-03-07T12:10:30.375Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
