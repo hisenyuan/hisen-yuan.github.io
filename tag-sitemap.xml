@@ -499,13 +499,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/%E7%AE%97%E6%B3%95/</loc>
-        <lastmod>2018-07-17T15:45:48.309Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
         <lastmod>2018-07-17T15:45:51.985Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -583,22 +576,29 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/java/</loc>
-        <lastmod>2019-03-09T10:09:14.541Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/gitLab/</loc>
-        <lastmod>2019-03-09T10:09:14.541Z</lastmod>
+        <lastmod>2019-03-09T16:33:09.782Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://hisen.me/tags/git/</loc>
-        <lastmod>2019-03-09T10:09:14.541Z</lastmod>
+        <lastmod>2019-03-09T16:33:09.782Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/java/</loc>
+        <lastmod>2019-03-22T02:54:56.578Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/%E7%AE%97%E6%B3%95/</loc>
+        <lastmod>2019-03-22T02:54:56.578Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

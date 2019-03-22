@@ -1,1 +1,1 @@
-http://hisen.me/20190309-git版本差异报告 - git difftool分支对比 - gitLab compare/
+http://hisen.me/20190322-WeightAlgorithm - 权重算法 - Random、HashCode对比/
