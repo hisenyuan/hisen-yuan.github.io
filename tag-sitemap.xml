@@ -590,20 +590,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/%E6%BA%90%E7%A0%81/</loc>
-        <lastmod>2019-03-25T16:44:26.173Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hisen.me/tags/Dubbo/</loc>
-        <lastmod>2019-03-25T16:44:26.173Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/%E7%AE%97%E6%B3%95/</loc>
         <lastmod>2019-03-29T16:12:43.362Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -611,15 +597,36 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/java/</loc>
+        <loc>http://hisen.me/tags/jdk/</loc>
         <lastmod>2019-03-29T16:38:34.687Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/jdk/</loc>
-        <lastmod>2019-03-29T16:38:34.687Z</lastmod>
+        <loc>http://hisen.me/tags/%E6%BA%90%E7%A0%81/</loc>
+        <lastmod>2019-03-31T08:05:25.877Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/Dubbo/</loc>
+        <lastmod>2019-03-31T08:05:25.877Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/java/</loc>
+        <lastmod>2019-04-04T14:44:37.021Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/%E6%8A%80%E5%B7%A7/</loc>
+        <lastmod>2019-04-04T14:44:37.021Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
