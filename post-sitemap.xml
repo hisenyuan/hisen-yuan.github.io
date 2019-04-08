@@ -7,8 +7,16 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/20190407-Java%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%80%E7%94%9F/</loc>
-        <lastmod>2019-04-08T13:45:33.898Z</lastmod>
+        <loc>http://hisen.me/20190408-Unix%E6%96%87%E4%BB%B6%E8%B6%85%E8%BF%87%E5%A4%A7%E5%B0%8F%E9%99%90%E5%88%B6%E7%A7%BB%E5%8A%A8%E5%88%B0%E6%9F%90%E7%9B%AE%E5%BD%95/</loc>
+        <lastmod>2019-04-08T13:58:18.455Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://hisen.me/20190408-Java%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%80%E7%94%9F/</loc>
+        <lastmod>2019-04-08T13:58:00.282Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

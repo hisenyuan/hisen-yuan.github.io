@@ -352,13 +352,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/linux/</loc>
-        <lastmod>2017-08-15T03:07:34.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/jwt/</loc>
         <lastmod>2017-08-17T10:28:18.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -626,7 +619,14 @@
 
     <url>
         <loc>http://hisen.me/tags/java/</loc>
-        <lastmod>2019-04-08T13:45:33.898Z</lastmod>
+        <lastmod>2019-04-08T13:58:00.282Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/linux/</loc>
+        <lastmod>2019-04-08T13:58:18.455Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
