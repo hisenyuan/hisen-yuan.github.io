@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[linux命令统计出现次数前10的次数和IP | awk sort unip等组合]]></title>
+    <url>%2F20190410-linux%E5%91%BD%E4%BB%A4%E7%BB%9F%E8%AE%A1%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E5%89%8D10%E7%9A%84%E6%AC%A1%E6%95%B0%E5%92%8CIP%20%7C%20awk%20sort%20unip%E7%AD%89%E7%BB%84%E5%90%88%2F</url>
+    <content type="text"><![CDATA[一、命令组合1234$ more sort.log | awk &apos;&#123;print $1&#125;&apos; | sort | uniq -c | sort -k1nr | head -3 4 5 3 1 2 2二、命令详解more：一次读取少量的数据，避免一次性载入大文件，比cat好些awk ‘{print $1}’：以awk默认的分隔符，并且打印第一列sort：把上一步的结果按ASCII排序uniq -c：如果重复那么计数，uniq命令可以组合很多其它参数sort -k1nr：根据第一列的数据进行排序，n是按数值大小排序，r是倒序排序head -3：显示前面三行数据三、原始数据12345678910111213141516$ cat sort.log123456112345556]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Unix文件超过大小限制移动到某目录]]></title>
     <url>%2F20190408-Unix%E6%96%87%E4%BB%B6%E8%B6%85%E8%BF%87%E5%A4%A7%E5%B0%8F%E9%99%90%E5%88%B6%E7%A7%BB%E5%8A%A8%E5%88%B0%E6%9F%90%E7%9B%AE%E5%BD%95%2F</url>
     <content type="text"><![CDATA[某个文件夹下面有n个文件，需要移动大于10M的文件到/tmp/目录下实现命令1find . -type f -size +100M -exec mv &#123;&#125; /tmp/ \;find 查找. 当前目录-type 文件类型：f 文件，d 目录-size 文件大小：+100M +：大于 -：小于 空：等于-exec 管道命令，将前面的查询结果传递给后面的命令{} 指前面传递过来的的查询结果\; 结束管道命令]]></content>
