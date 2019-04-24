@@ -1,1 +1,1 @@
-http://hisen.me/20190413-认识Java IO | BIO-NIO-AIO/
+http://hisen.me/20190424-Guice Demo | solve NoSuchMethodError/

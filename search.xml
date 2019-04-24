@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>Guice Demo | solve NoSuchMethodError</title>
+      <link href="/20190424-Guice%20Demo%20%7C%20solve%20NoSuchMethodError/"/>
+      <url>/20190424-Guice%20Demo%20%7C%20solve%20NoSuchMethodError/</url>
+      <content type="html"><![CDATA[<!-- build time:Wed Apr 24 2019 18:25:35 GMT+0800 (中国标准时间) --><h1 id="一、Guice简介"><a href="#一、Guice简介" class="headerlink" title="一、Guice简介"></a>一、Guice简介</h1><p>Google公司的Bob lee开发的轻量级IoC容器，其特点是：</p><ol><li>速度快，号称是spring的100倍速度</li><li>无配置文件，实用JDK5.0的annotation描述组件依赖，简单，而且有编译器检查和重构支持</li><li>简单，代码量很少</li></ol><h1 id="二、简单样例"><a href="#二、简单样例" class="headerlink" title="二、简单样例"></a>二、简单样例</h1><ol><li>详细代码：<a href="https://github.com/hisenyuan/IDEAPractice/tree/master/src/main/java/com/hisen/jars/guice" target="_blank" rel="noopener">https://github.com/hisenyuan/IDEAPractice/tree/master/src/main/java/com/hisen/jars/guice</a></li><li><p>依赖</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.google.inject&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;guice&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;4.2.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li><li><p>测试类</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @Author hisenyuan</span><br><span class="line"> * @Description $end$</span><br><span class="line"> * @Date 2019/4/24 16:13</span><br><span class="line"> */</span><br><span class="line">public class HelloApp &#123;</span><br><span class="line">    @Test</span><br><span class="line">    public void testSayHello() &#123;</span><br><span class="line">        Injector injector = Guice.createInjector();</span><br><span class="line">        HelloService helloService = injector.getInstance(HelloService.class);</span><br><span class="line">        helloService.sayHello(&quot;hisen1&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol><h1 id="三、解决问题"><a href="#三、解决问题" class="headerlink" title="三、解决问题"></a>三、解决问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.lang.NoSuchMethodError: com.google.common.base.Preconditions.checkArgument(ZLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V</span><br></pre></td></tr></table></figure><p>github有人遇到同样的问题：<a href="https://github.com/SeleniumHQ/selenium/issues/3880" target="_blank" rel="noopener">https://github.com/SeleniumHQ/selenium/issues/3880</a></p><p>把本地的guava版本由19.0改为21.0成功解决问题</p><!-- rebuild by neat -->]]></content>
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>认识Java I/O | BIO NIO AIO | 同步与异步 | 阻塞与非阻塞 | I/O多路复用</title>
       <link href="/20190413-%E8%AE%A4%E8%AF%86Java%20IO%20%7C%20BIO-NIO-AIO/"/>
       <url>/20190413-%E8%AE%A4%E8%AF%86Java%20IO%20%7C%20BIO-NIO-AIO/</url>
