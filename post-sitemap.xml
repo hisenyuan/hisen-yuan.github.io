@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://hisen.me/20190425-Curator%20-%20ZooKeeper%E7%9B%AE%E5%89%8D%E6%9C%80%E5%A5%BD%E7%94%A8%E7%9A%84%E5%AE%A2%E6%88%B7%E7%AB%AF/</loc>
+        <lastmod>2019-04-25T08:52:25.969Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://hisen.me/20190424-Guice%20Demo%20%7C%20solve%20NoSuchMethodError/</loc>
         <lastmod>2019-04-25T08:36:06.091Z</lastmod>
         <changefreq>weekly</changefreq>
