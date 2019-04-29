@@ -1,1 +1,1 @@
-http://hisen.me/20190425-Curator - ZooKeeper目前最好用的客户端/
+http://hisen.me/20190429-java - 受检异常和非受检异常 - uncheckedException checkedException/
