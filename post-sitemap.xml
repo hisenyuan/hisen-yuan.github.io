@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>http://hisen.me/20190429-%E7%BC%93%E5%AD%98%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF%20-%20%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98(ecache%7Cguava)%7C%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98(memcache%7Credis)/</loc>
+        <lastmod>2019-04-29T13:32:32.570Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://hisen.me/20190413-%E8%81%8A%E8%81%8AMySQL%E7%9A%84%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/</loc>
+        <lastmod>2019-04-29T12:47:16.707Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://hisen.me/20190425-Curator%20-%20ZooKeeper%E7%9B%AE%E5%89%8D%E6%9C%80%E5%A5%BD%E7%94%A8%E7%9A%84%E5%AE%A2%E6%88%B7%E7%AB%AF/</loc>
         <lastmod>2019-04-29T10:19:29.547Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -57,14 +73,6 @@
     <url>
         <loc>http://hisen.me/20190413-%E8%AE%A4%E8%AF%86Java%20IO%20%7C%20BIO-NIO-AIO/</loc>
         <lastmod>2019-04-13T10:44:01.527Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://hisen.me/20190413-%E8%81%8A%E8%81%8AMySQL%E7%9A%84%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/</loc>
-        <lastmod>2019-04-13T09:34:23.799Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

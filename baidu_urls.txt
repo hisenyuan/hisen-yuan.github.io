@@ -1,1 +1,1 @@
-http://hisen.me/20190429-Java GC - 理论与实践 - 附优化案例/
+http://hisen.me/20190429-缓存那些事儿 - 本地缓存(ecache|guava)|分布式缓存(memcache|redis)/
