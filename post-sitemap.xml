@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://hisen.me/20190425-Curator%20-%20ZooKeeper%E7%9B%AE%E5%89%8D%E6%9C%80%E5%A5%BD%E7%94%A8%E7%9A%84%E5%AE%A2%E6%88%B7%E7%AB%AF/</loc>
+        <lastmod>2019-04-29T10:19:29.547Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://hisen.me/20190429-Java%20GC%20-%20%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5%20-%20%E9%99%84%E4%BC%98%E5%8C%96%E6%A1%88%E4%BE%8B/</loc>
         <lastmod>2019-04-29T10:05:51.072Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -33,14 +41,6 @@
     <url>
         <loc>http://hisen.me/20190330-Agent%20CGlib%20VS%20JDK%20%7C%20%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E6%AF%94%E8%BE%83/</loc>
         <lastmod>2019-04-26T11:44:41.960Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://hisen.me/20190425-Curator%20-%20ZooKeeper%E7%9B%AE%E5%89%8D%E6%9C%80%E5%A5%BD%E7%94%A8%E7%9A%84%E5%AE%A2%E6%88%B7%E7%AB%AF/</loc>
-        <lastmod>2019-04-25T13:02:06.604Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
