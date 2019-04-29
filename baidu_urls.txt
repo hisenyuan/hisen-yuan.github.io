@@ -1,1 +1,1 @@
-http://hisen.me/20190429-java - 受检异常和非受检异常 - uncheckedException checkedException/
+http://hisen.me/20190429-Java GC - 理论与实践 - 附优化案例/

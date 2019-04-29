@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://hisen.me/20190429-Java%20GC%20-%20%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5%20-%20%E9%99%84%E4%BC%98%E5%8C%96%E6%A1%88%E4%BE%8B/</loc>
+        <lastmod>2019-04-29T10:03:02.768Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://hisen.me/20190429-java%20-%20%E5%8F%97%E6%A3%80%E5%BC%82%E5%B8%B8%E5%92%8C%E9%9D%9E%E5%8F%97%E6%A3%80%E5%BC%82%E5%B8%B8%20-%20uncheckedException%20checkedException/</loc>
         <lastmod>2019-04-29T09:00:56.971Z</lastmod>
         <changefreq>weekly</changefreq>
