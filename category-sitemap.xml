@@ -119,15 +119,15 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/categories/sql/</loc>
-        <lastmod>2019-04-29T12:47:16.707Z</lastmod>
+        <loc>http://hisen.me/categories/java/</loc>
+        <lastmod>2019-04-29T13:40:41.600Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://hisen.me/categories/java/</loc>
-        <lastmod>2019-04-29T13:40:41.600Z</lastmod>
+        <loc>http://hisen.me/categories/sql/</loc>
+        <lastmod>2019-04-29T13:42:46.730Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
