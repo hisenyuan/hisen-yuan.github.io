@@ -1,1 +1,1 @@
-http://hisen.me/20190716-读取文件路径相关问题/
+http://hisen.me/20190722-Autowire、Resource的区别 | Java注解/
