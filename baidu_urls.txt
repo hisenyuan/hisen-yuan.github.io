@@ -1,1 +1,1 @@
-http://hisen.me/20190722-Autowire、Resource的区别 | Java注解/
+http://hisen.me/20190801-性能指标的含义与计算方式:TP50、TP90、TP99、TP999/
