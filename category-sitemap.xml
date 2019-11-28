@@ -141,7 +141,14 @@
 
     <url>
         <loc>http://hisen.me/categories/java/</loc>
-        <lastmod>2019-11-03T04:20:14.552Z</lastmod>
+        <lastmod>2019-11-15T03:23:30.421Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/categories/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE/</loc>
+        <lastmod>2019-11-20T03:15:01.509Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
