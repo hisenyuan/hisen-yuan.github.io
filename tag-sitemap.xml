@@ -653,13 +653,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/java/</loc>
-        <lastmod>2019-11-15T03:23:30.421Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/%E6%BA%90%E7%A0%81/</loc>
         <lastmod>2019-11-15T03:23:30.421Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -683,6 +676,13 @@
     <url>
         <loc>http://hisen.me/tags/%E9%9A%8F%E8%AF%B4/</loc>
         <lastmod>2020-02-26T14:13:33.726Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/java/</loc>
+        <lastmod>2020-04-06T14:09:14.545Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

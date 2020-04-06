@@ -1,1 +1,1 @@
-http://hisen.me/20200226-find-a-good-way-to-learn/
+http://hisen.me/20200406-self4j-logback-log4j-log-properties/
