@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Java 反序列化漏洞]]></title>
+    <url>%2F20200510-java-deserialize-security-hole%2F</url>
+    <content type="text"><![CDATA[微博目前关注了好几个做安全的大佬不要问我为什么关注问就是想观摩下有钱人的微博！其中有一个经常发 Java 相关的内容今天看到一个稍微熟悉一点关于 FastJson 漏洞窃以为Fastjson入门的最佳篇章非Mi1k7ea这个系列莫属，郑重推荐: Mi1k7ea。共有5篇，从第3篇开始，成体系地由旧到新展示了1.2.25之后各版本的补丁绕过，直至思路惊艳的1.2.47绕过方案及1.2.48的修补方案，相当完备。可以看出此君是动手实践派、整理归纳派，要我说，新学东西时就得这套路，无它。今天看了这两篇文章，不得不说对 Java 是异常的熟悉。想做好安全，想必要对用的东西了如指掌，知道坑在哪里，怎么填坑。Java反序列化漏洞Fastjson系列一 反序列化漏洞基本原理后记：很多时候大部分人都只关注自己工作职责内的那一亩三分地其实很多时候横向观察一下会发现很多靓丽的风景至今没有如此深入的去看过底层甚是愧疚用最多的时间去做最正确的事情！]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[开源画图工具(各种图)：draw.io 支持 Web、macOS、Windows、Linux]]></title>
     <url>%2F20200406-draw.io-open-source-drawing-tools-support-web-mac-windows-linux%2F</url>
     <content type="text"><![CDATA[draw.io 一个很棒的开源画图工具，可以导出 xml、pdf、html、png 等各种格式其实重点是开源，目前好几个地方看到有在用，之前用网页版，现在用桌面版多些网页版：draw.io桌面版：github 下载支持：Windows、macOS、Linux、Google Chrome OS]]></content>
