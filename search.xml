@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>关于部署软系统的思考</title>
+      <link href="/20200627-thinking-of-deploy-soft-system/"/>
+      <url>/20200627-thinking-of-deploy-soft-system/</url>
+      <content type="html"><![CDATA[<!-- build time:Sat Jun 27 2020 22:08:29 GMT+0800 (中国标准时间) --><p>在 敏捷 + devops 盛行的年代<br>软件部署的频率一般都比较高，一周一迭代、一周两迭代<br>这就需要有良好的工具来支持，更需要良好的机制来避免人为犯错</p><p>工作当中会遇到很多部署导致的问题<br>其中大部分的问题原因是配置问题</p><p>关于部署</p><ol><li>开发的时候记录大致改动点</li><li>上线之前按检查列表(团队或个人定义一些常规检查项目)挨个检查</li><li>上线之前写上线步骤(非必须)</li><li>上线之前写好验证步骤，验证需要的各种权限</li><li>以上做完了最好找相关人员核对一遍，以免遗漏(互备很重要)</li></ol><p>互备很重要，哪怕对方没有介入开发，简单的按正常流程问你几个问题，也许就会发现漏了什么。</p><!-- rebuild by neat -->]]></content>
+      
+      <categories>
+          
+          <category> soft </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> soft </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>赢得财富：用独到的知识/责任感/杠杆</title>
       <link href="/20200517-specific-knowledge-accountability-leverage/"/>
       <url>/20200517-specific-knowledge-accountability-leverage/</url>
