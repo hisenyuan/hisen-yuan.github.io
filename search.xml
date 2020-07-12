@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[MySQL分页查询]]></title>
+    <url>%2F20200712-mysql-page-query%2F</url>
+    <content type="text"><![CDATA[零、分页查询分页查询一般都会想到 offset limit问题1当不停机需要全量同步数据时有可能会漏掉或者重复处理很多数据(因为中通会有改动)问题2offset 会进行全表扫描一、推荐方案通过不变的字段进行排序最好是使用递增的主键索引12345select * from hisenwhere id &gt; $&#123;lastId&#125; order by idlimit $&#123;pageSize&#125;;二、参考请不要将OFFSET和LIMIT用于分页]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[关于部署软系统的思考]]></title>
     <url>%2F20200627-thinking-of-deploy-soft-system%2F</url>
     <content type="text"><![CDATA[在 敏捷 + devops 盛行的年代软件部署的频率一般都比较高，一周一迭代、一周两迭代这就需要有良好的工具来支持，更需要良好的机制来避免人为犯错工作当中会遇到很多部署导致的问题其中大部分的问题原因是配置问题关于部署开发的时候记录大致改动点上线之前按检查列表(团队或个人定义一些常规检查项目)挨个检查上线之前写上线步骤列表，部署时做一个人肉机器人，按步骤操作即可上线之前写好验证步骤，验证需要的各种权限以上做完了最好找相关人员核对一遍，以免遗漏(互备很重要)灰度发布(应用启动期间性能抖动问题值得研究)互备很重要，哪怕对方没有介入开发，简单的按正常流程问你几个问题，也许就会发现漏了什么。]]></content>

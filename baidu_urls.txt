@@ -1,1 +1,1 @@
-http://hisen.me/20200627-thinking-of-deploy-soft-system/
+http://hisen.me/20200712-mysql-page-query/
