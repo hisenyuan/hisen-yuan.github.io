@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[MySQL分页查询]]></title>
     <url>%2F20200712-mysql-page-query%2F</url>
-    <content type="text"><![CDATA[零、分页查询分页查询一般都会想到 offset limit问题1当不停机需要全量同步数据时有可能会漏掉或者重复处理很多数据(因为中通会有改动)问题2offset 会进行全表扫描一、推荐方案通过不变的字段进行排序最好是使用递增的主键索引12345select * from hisenwhere id &gt; $&#123;lastId&#125; order by idlimit $&#123;pageSize&#125;;二、参考请不要将OFFSET和LIMIT用于分页]]></content>
+    <content type="text"><![CDATA[零、分页查询分页查询一般都会想到 offset limit问题1当不停机需要全量同步数据时有可能会漏掉或者重复处理很多数据因为中途会有数据改动每次分页内的数据与预期的会有出入问题2offset 会进行全表扫描一、推荐方案通过不变的字段进行排序最好是使用递增的主键索引12345select * from hisenwhere id &gt; $&#123;lastId&#125; order by idlimit $&#123;pageSize&#125;;二、参考请不要将OFFSET和LIMIT用于分页]]></content>
       <categories>
         <category>mysql</category>
       </categories>
