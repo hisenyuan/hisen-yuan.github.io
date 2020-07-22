@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://hisen.me/20170801-Google%20java%E5%B7%A5%E5%85%B7%E7%B1%BB%20-%20Guava%20-%20%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/</loc>
+        <lastmod>2020-07-22T22:32:05.540Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://hisen.me/20200723-Few-people-know-that-they-are-ignorance/</loc>
         <lastmod>2020-07-22T22:25:12.411Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -817,14 +825,6 @@
     <url>
         <loc>http://hisen.me/20170801-No%20MyBatis%20mapper%20was%20found%20in%20'%5Bcom.xxx.dao%5D'%20package%20/</loc>
         <lastmod>2017-08-01T07:47:26.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://hisen.me/20170801-Google%20java%E5%B7%A5%E5%85%B7%E7%B1%BB%20-%20Guava%20-%20%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/</loc>
-        <lastmod>2017-08-01T03:05:52.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
