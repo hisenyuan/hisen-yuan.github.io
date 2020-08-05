@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://hisen.me/20200805-software-engineer-interview-guide/</loc>
+        <lastmod>2020-08-05T02:01:58.982Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://hisen.me/20170801-Google%20java%E5%B7%A5%E5%85%B7%E7%B1%BB%20-%20Guava%20-%20%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/</loc>
         <lastmod>2020-07-22T22:32:05.540Z</lastmod>
         <changefreq>weekly</changefreq>

@@ -58,13 +58,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/%E9%9D%A2%E8%AF%95/</loc>
-        <lastmod>2017-02-09T13:58:34.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/windows10%E4%B8%93%E4%B8%9A%E7%89%88%E6%BF%80%E6%B4%BB%E5%AF%86%E9%92%A5/</loc>
         <lastmod>2017-02-10T08:05:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -695,13 +688,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/java/</loc>
-        <lastmod>2020-07-22T22:32:05.540Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/google/</loc>
         <lastmod>2020-07-22T22:32:05.540Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -711,6 +697,20 @@
     <url>
         <loc>http://hisen.me/tags/jar/</loc>
         <lastmod>2020-07-22T22:32:05.540Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/java/</loc>
+        <lastmod>2020-08-05T02:01:58.982Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/%E9%9D%A2%E8%AF%95/</loc>
+        <lastmod>2020-08-05T02:01:58.982Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
