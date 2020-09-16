@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[MySQL查询违反最左匹配原则，但 explain 显示走索引的疑惑]]></title>
+    <url>%2F20200915-the-puzzle-of-mysql-using-index-which-violation-of-leftmost-matching-principle%2F</url>
+    <content type="text"><![CDATA[零、本文背景有个朋友抛出一个问题，明显不符合最左匹配原则的 SQL，居然走索引了兜兜转转，嘀咕了好几天，期间也和几个朋友讨论了一下都没有结果，最后还是在 MySQL 的官方文档中找到了原因记录下，也算是一次不错的探索。一、问题描述1.1 表结构12345678CREATE TABLE `people_new` ( `id` int(11) NOT NULL AUTO_INCREMENT, `last_name` varchar(255) NOT NULL, `first_name` varchar(255) NOT NULL, `bob` date NOT NULL, PRIMARY KEY (`id`), KEY `index_union` (`last_name`,`first_name`,`bob`)) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='人员-新'1.2 数据1234567mysql&gt; select * from people_new;+----+-----------+------------+------------+| id | last_name | first_name | bob |+----+-----------+------------+------------+| 1 | hisen | yuan | 2008-08-08 |+----+-----------+------------+------------+1 row in set (0.00 sec)1.3 SQL 分析可以看到 Using index但是 possible_keys null 而 key 显示 index_union1234567mysql&gt; explain select * from people_new where bob = &apos;2008-08-08&apos; and first_name = &apos;yuan&apos;;+----+-------------+------------+------------+-------+---------------+-------------+---------+------+------+----------+--------------------------+| id | select_type | table | partitions | type | possible_keys | key | key_len | ref | rows | filtered | Extra |+----+-------------+------------+------------+-------+---------------+-------------+---------+------+------+----------+--------------------------+| 1 | SIMPLE | people_new | NULL | index | NULL | index_union | 1537 | NULL | 1 | 100.00 | Using where; Using index |+----+-------------+------------+------------+-------+---------------+-------------+---------+------+------+----------+--------------------------+1 row in set, 1 warning (0.00 sec)二、原因1.1 的表结构显示，除了 id，其余三个属性都在 联合索引 中所以通过任何字段查询，返回的字段都被索引覆盖了，构成 覆盖索引 ，由于扫描全部索引会快于全表扫描，所以这时候 sql 不管是不是最左匹配都会走索引(应该是『全量索引』)。3.1 的表结构中，除了 id ，还有 area 不在联合索引当中，此时破坏了 覆盖索引 ，故不走索引。123If the index is a covering index for the queries and can be used to satisfy all data required from the table,only the index tree is scanned. In this case, the Extra column says Using index.An index-only scan usually is faster than ALL because the size of the index usually is smaller than the table data.详情：dev.mysql.com三、验证3.1 修改后的表结构123456789CREATE TABLE `people_new` ( `id` int(11) NOT NULL AUTO_INCREMENT, `last_name` varchar(255) NOT NULL, `first_name` varchar(255) NOT NULL, `bob` date NOT NULL, `area` varchar(256) DEFAULT NULL, PRIMARY KEY (`id`), KEY `index_union` (`last_name`,`first_name`,`bob`)) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='人员-新'3.2 修改表结构后的数据1234567mysql&gt; select * from people_new;+----+-----------+------------+------------+------+| id | last_name | first_name | bob | area |+----+-----------+------------+------------+------+| 1 | hisen | yuan | 2008-08-08 | NULL |+----+-----------+------------+------------+------+1 row in set (0.00 sec)3.2 SQL 分析1234567mysql&gt; explain select * from people_new where bob = &apos;2008-08-08&apos; and first_name = &apos;yuan&apos;;+----+-------------+------------+------------+------+---------------+------+---------+------+------+----------+-------------+| id | select_type | table | partitions | type | possible_keys | key | key_len | ref | rows | filtered | Extra |+----+-------------+------------+------------+------+---------------+------+---------+------+------+----------+-------------+| 1 | SIMPLE | people_new | NULL | ALL | NULL | NULL | NULL | NULL | 1 | 100.00 | Using where |+----+-------------+------------+------------+------+---------------+------+---------+------+------+----------+-------------+1 row in set, 1 warning (0.00 sec)四、总结有时候多和同行交流也能学到很多。带着问题去看官方文档收获会比较大。遇到问题，找到原因，解决问题，印象会深刻。]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+        <tag>index</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[软件工程师面试指引]]></title>
     <url>%2F20200805-software-engineer-interview-guide%2F</url>
     <content type="text"><![CDATA[零、关于面试面试决定因子：70% 能力、20% 缘分、10% 行情。软件工程师这条不归路，永远都走不到头，每天进步一点点，早日走上人生巅峰。一、面经/知识点仓库中的东西更多是抛砖引玉提供业界比较通用/关注的技术还得贴合自身需要深入去学习基础指引：https://github.com/Snailclimb/JavaGuide进阶之路：https://github.com/doocs/advanced-java简历打磨：https://github.com/geekcompany/ResumeSample/blob/master/java.md编程书籍：https://github.com/jobbole/awesome-programming-books大厂试题：https://github.com/0voice/interview_internal_reference后续持续更新，多交流，共同成长。]]></content>
@@ -31,7 +43,7 @@
         <category>mysql</category>
       </categories>
       <tags>
-        <tag>MySQL</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -108,7 +120,7 @@
         <category>随说</category>
       </categories>
       <tags>
-        <tag>随说</tag>
+        <tag>read</tag>
       </tags>
   </entry>
   <entry>
@@ -544,17 +556,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[《穿布鞋的马云》 - 部分文字摘录]]></title>
-    <url>%2F20180908-%E3%80%8A%E7%A9%BF%E5%B8%83%E9%9E%8B%E7%9A%84%E9%A9%AC%E4%BA%91%E3%80%8B%20-%20%E9%83%A8%E5%88%86%E6%96%87%E5%AD%97%E6%91%98%E5%BD%95%2F</url>
-    <content type="text"><![CDATA[《穿布鞋的马云》 2018.10.01 ~ 2018.10.02国庆假期没有什么安排，看了几部电影之后感觉蛮愧疚，又浪费了大把的时间于是乎在书架上找了本决定看起来压力不那么大的书来看这本书感觉整体上写的一般，可能定位就是通俗易懂吧但是对于了解一些细节，还是很有帮助由于目前待在创业公司，看到很多文字的时候还是很有感触的如果你想成功，积极乐观地看待任何问题以下为摘抄：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990马云在校教书，兼职创业:海博翻译社92派:1992年后创业的企业家想清楚干什么，然后就要清楚该干什么;知道该干什么之后，要明白自己不该干什么——&gt;能干多久？想干多久？这件事情该干多久就多久。记住自己第一天的梦想，至关重要。海博翻译社的网页是第一个外国人能在互联网上搜到的第一个中国的网页。1995年是全世界互联网商用的第一年。只有启蒙才会有更大的市场。资本永远不能控制一家公司，资本只能为创业服务，而不能控制公司。一个创业公司的创始人能够取得权威媒体的认可，也是一件惊人的事情。创业者最重要的是创造条件，如果等到时机成熟的话，一定轮不到我们。有了理想之后，我觉得，最重要的是给自己一个承诺，承诺自己要把这个事情做出来。如果你不行动，不给自己的梦想一个实践的机会，你永远没有机会。创立阿里巴巴之前，三家公司马云得到的创业智慧:第一，选对创业项目很重要第二，即便是几个人的小公司，管理制度的建设也很重要第三，资本控制了你的公司时，你是没有希望的。第四，创业团队没有相同的理念和共同的目标会导致分裂。第五，对国有股东有了近距离的认识。1998年，阿里巴巴做bbs，长城是最早的bbs，xxx到此一游。阿里巴巴，在美国看到的名字，是“open sesame”芝麻开门的意思。合作都是团队做出来的，如果别人把你当英雄，你千万不要把自己当英雄，如果自己把自己当英雄必然要走下坡路。有几种人是难以在团队中培养的，一种是懂资本的人才，其他是财务、法律人才。因为这样的人才不仅要懂专业，而且需要经验。一般的公司多半是在上市之前引进这样的人才。在我擅长的世界里，我非常自信，非常自如。我没有想过要大包大揽，我知道自己的角色是什么。对于公众舆论而言，公司只能用一个声音说话，太多声音，只会让这个公司的形象变的模糊。世界上最不缺的就是钱，缺的是能用资本创造价值的企业家和企业家精神。1999.10高盛投资阿里巴巴使得后者可以对媒体讲一个好的故事:全世界最好的投资银行看好阿里巴巴的长期发展。它让外界对这家初创公司刮目相看。永远不要让资本说话，让资本赚钱。1999.10，拿到高盛500万(40%)投资的马云，随后孙正义想4000万占有49%的股份，后来3000万美元得到30%的股份，再后来，马云马云觉得钱太多反悔，最后孙正义投资2000万获得20%股份。在所有的创业公司发展中，扩张规模是最容易犯错误的时候，而这时犯的错还都是不小的错误。人多财务成本高，这并不是主要的，重要的是那些闲人会让全心全意投入加班加点的人感到不平衡，久而久之，公司的文化风气就不行了。2009.10 西湖论剑，马云请金庸拉拢当时互联网行业的佼佼者参与。前来的有:金庸，新浪王志东，搜狐张朝阳，网易丁磊，my8848王俊涛，加拿大驻华大使，英国驻沪总理事及50多家国际跨国公司在华代表在创业初期要寻找这些梦之队:没有成功，渴望成功，平凡，团结，有共同理想的人。2003年每天收入100万元，2004年每天盈利100万元，2005年每天纳税100万元。拥有好的业绩和产品，同事技巧性地为自己选定一个对标物，这会让你的公司和产品赢得大量关注。“裸奔”和淘宝的倒立与武侠一样，都是极易被识别的与众不同的公司文化符号，也极易产生传播效应。好的商人不在于他的梦想多么伟大，但是他的梦想必须是独特的，任何一个成功的企业家，从第一天起都有一个独特的梦想。2005.8.11雅虎中国并入阿里巴巴。资产技术+10亿美元，获得阿里40%股份。一个公司如果并购另外一个公司的话，文化融合是一件很难的事情。聪明是智慧者的天敌，傻瓜用嘴说话，聪明的人用脑子说话，智慧的人用心讲话。所以永远要记住，不要把自己当成最聪明的人，最聪明的人相信总有别人比自己更聪明。作为一个领导人，应该控制自己的情绪，很多时候发脾气是无能的表现，合理的情绪控制对于团队的和谐，稳定军心有很大作用。改变别人，先改变自己;要完善世界，先完善自己;要帮助好别人，先帮助自己;如果你不能帮助好自己，那一切都是瞎扯。人与人之间最本质的区别不是技能、专业、能力、情商，而是人生的使命感和价值观，而企业同理。先付出，再得到。没有使命感，人生会找不到奋斗的意义;没价值诶观，奋斗的方式会扭曲。80后，90后，我觉得是我的产品，我们没有理由、权利和责任区批判我们的产品，我们唯一有的权利和责任是完善我们的产品。真正的幸福感是你知道自己在做什么，知道别人在做什么，你会逐渐从痛苦中找到那些快乐。如果你想成功，积极乐观地看待任何问题]]></content>
-      <categories>
-        <category>reading</category>
-      </categories>
-      <tags>
-        <tag>穿布鞋的马云</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[《Go语言程序设计》 - ch1/lissajous - GIF动画]]></title>
     <url>%2F20180908-%E3%80%8AGo%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E3%80%8B%20-%20ch1%3Alissajous%20-%20GIF%E5%8A%A8%E7%94%BB%2F</url>
     <content type="text"><![CDATA[一、程序说明可以以web的方式查看，也可以生成一个图片直接go run输出的是一丢乱码(图片)需要go build 然后运行程序(具体看代码里面注释)具体的内容可以看下面的程序代码(虽然是抄书)二、程序代码2.1 基本程序123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263package mainimport ( "image" "image/color" "image/gif" "io" "log" "math" "math/rand" "net/http" "os" "time")var palette = []color.Color&#123;color.White, color.Black&#125;const ( whiteIndex = 0 // 画板中的第一种颜色 blackIndex = 1 // 画板中的下一种颜色)func main() &#123; rand.Seed(time.Now().UTC().UnixNano()) if len(os.Args) &gt; 1 &amp;&amp; os.Args[1] == "web" &#123; handler := func(w http.ResponseWriter, r *http.Request) &#123; lissajous(w) &#125; http.HandleFunc("/", handler) log.Fatal(http.ListenAndServe("localhost:8000", nil)) return &#125; lissajous(os.Stdout)&#125;func lissajous(out io.Writer) &#123; const ( cycles = 5 // 完整的x振荡器变化的个数 res = 0.001 // 角度分辨率 size = 100 // 图像画布包含 nframes = 64 // 动画中的帧数 delay = 8 // 以10ms为单位的帧间延迟 ) freq := rand.Float64() * 3.0 // y振荡器的相对频率 anim := gif.GIF&#123;LoopCount: nframes&#125; phase := 0.0 // phase difference for i := 1; i &lt; nframes; i++ &#123; rect := image.Rect(0, 0, 2*size+1, 2*size+1) img := image.NewPaletted(rect, palette) for t := 0.0; t &lt; cycles*2*math.Pi; t += res &#123; x := math.Sin(t) y := math.Sin(t*freq + phase) img.SetColorIndex(size+int(x*size+0.5),size+int(y*size+0.5),blackIndex) &#125; phase +=0.1 anim.Delay = append(anim.Delay,delay) anim.Image = append(anim.Image,img) &#125; gif.EncodeAll(out,&amp;anim) // 注意：忽略编码错误（直接运行输出的是一堆乱码） // go build lissajous.go // ./lissajous &gt;out.gif # 生成一个图片 // ./lissajous web # 开启一个web服务，可以浏览器访问 localhost:8000&#125;2.2 改进型程序，也是课后练习1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162package mainimport ( "image" "image/color" "image/gif" "io" "log" "math" "math/rand" "net/http" "os" "time")// 颜色代码数组var palette = []color.Color&#123;color.Black, color.RGBA&#123;199, 237, 204, 0xff&#125;, color.RGBA&#123;102, 53, 204, 0xff&#125;&#125;func main() &#123; rand.Seed(time.Now().UTC().UnixNano()) // 判断传入参数 如果有web,就启动一个web服务器 if len(os.Args) &gt; 1 &amp;&amp; os.Args[1] == "web" &#123; handler := func(w http.ResponseWriter, r *http.Request) &#123; lissajous(w) &#125; http.HandleFunc("/", handler) log.Fatal(http.ListenAndServe("localhost:8000", nil)) return &#125; lissajous(os.Stdout)&#125;func lissajous(out io.Writer) &#123; const ( cycles = 5 // 完整的x振荡器变化的个数 res = 0.001 // 角度分辨率 size = 100 // 图像画布包含 nframes = 64 // 动画中的帧数 delay = 8 // 以10ms为单位的帧间延迟 ) freq := rand.Float64() * 3.0 // y振荡器的相对频率 anim := gif.GIF&#123;LoopCount: nframes&#125; phase := 0.0 // phase difference for index,i :=0, 1; i &lt; nframes; i++ &#123; rect := image.Rect(0, 0, 2*size+1, 2*size+1) img := image.NewPaletted(rect, palette) for t := 0.0; t &lt; cycles*2*math.Pi; t += res &#123; x := math.Sin(t) y := math.Sin(t*freq + phase) img.SetColorIndex(size+int(x*size+0.5), size+int(y*size+0.5), uint8(index)) &#125; // 控制变色频率，生成颜色数组下标 index = i % 3 phase += 0.1 anim.Delay = append(anim.Delay, delay) anim.Image = append(anim.Image, img) &#125; gif.EncodeAll(out, &amp;anim) // 注意：忽略编码错误（直接运行输出的是一堆乱码） // go build lissajous.go // ./lissajous &gt;out.gif # 生成一个图片 // ./lissajous web # 开启一个web服务，可以浏览器访问 localhost:8000&#125;]]></content>
@@ -563,6 +564,17 @@
       </categories>
       <tags>
         <tag>go</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[《穿布鞋的马云》 - 部分文字摘录]]></title>
+    <url>%2F20180908-%E3%80%8A%E7%A9%BF%E5%B8%83%E9%9E%8B%E7%9A%84%E9%A9%AC%E4%BA%91%E3%80%8B%20-%20%E9%83%A8%E5%88%86%E6%96%87%E5%AD%97%E6%91%98%E5%BD%95%2F</url>
+    <content type="text"><![CDATA[《穿布鞋的马云》 2018.10.01 ~ 2018.10.02国庆假期没有什么安排，看了几部电影之后感觉蛮愧疚，又浪费了大把的时间于是乎在书架上找了本决定看起来压力不那么大的书来看这本书感觉整体上写的一般，可能定位就是通俗易懂吧但是对于了解一些细节，还是很有帮助由于目前待在创业公司，看到很多文字的时候还是很有感触的如果你想成功，积极乐观地看待任何问题以下为摘抄：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990马云在校教书，兼职创业:海博翻译社92派:1992年后创业的企业家想清楚干什么，然后就要清楚该干什么;知道该干什么之后，要明白自己不该干什么——&gt;能干多久？想干多久？这件事情该干多久就多久。记住自己第一天的梦想，至关重要。海博翻译社的网页是第一个外国人能在互联网上搜到的第一个中国的网页。1995年是全世界互联网商用的第一年。只有启蒙才会有更大的市场。资本永远不能控制一家公司，资本只能为创业服务，而不能控制公司。一个创业公司的创始人能够取得权威媒体的认可，也是一件惊人的事情。创业者最重要的是创造条件，如果等到时机成熟的话，一定轮不到我们。有了理想之后，我觉得，最重要的是给自己一个承诺，承诺自己要把这个事情做出来。如果你不行动，不给自己的梦想一个实践的机会，你永远没有机会。创立阿里巴巴之前，三家公司马云得到的创业智慧:第一，选对创业项目很重要第二，即便是几个人的小公司，管理制度的建设也很重要第三，资本控制了你的公司时，你是没有希望的。第四，创业团队没有相同的理念和共同的目标会导致分裂。第五，对国有股东有了近距离的认识。1998年，阿里巴巴做bbs，长城是最早的bbs，xxx到此一游。阿里巴巴，在美国看到的名字，是“open sesame”芝麻开门的意思。合作都是团队做出来的，如果别人把你当英雄，你千万不要把自己当英雄，如果自己把自己当英雄必然要走下坡路。有几种人是难以在团队中培养的，一种是懂资本的人才，其他是财务、法律人才。因为这样的人才不仅要懂专业，而且需要经验。一般的公司多半是在上市之前引进这样的人才。在我擅长的世界里，我非常自信，非常自如。我没有想过要大包大揽，我知道自己的角色是什么。对于公众舆论而言，公司只能用一个声音说话，太多声音，只会让这个公司的形象变的模糊。世界上最不缺的就是钱，缺的是能用资本创造价值的企业家和企业家精神。1999.10高盛投资阿里巴巴使得后者可以对媒体讲一个好的故事:全世界最好的投资银行看好阿里巴巴的长期发展。它让外界对这家初创公司刮目相看。永远不要让资本说话，让资本赚钱。1999.10，拿到高盛500万(40%)投资的马云，随后孙正义想4000万占有49%的股份，后来3000万美元得到30%的股份，再后来，马云马云觉得钱太多反悔，最后孙正义投资2000万获得20%股份。在所有的创业公司发展中，扩张规模是最容易犯错误的时候，而这时犯的错还都是不小的错误。人多财务成本高，这并不是主要的，重要的是那些闲人会让全心全意投入加班加点的人感到不平衡，久而久之，公司的文化风气就不行了。2009.10 西湖论剑，马云请金庸拉拢当时互联网行业的佼佼者参与。前来的有:金庸，新浪王志东，搜狐张朝阳，网易丁磊，my8848王俊涛，加拿大驻华大使，英国驻沪总理事及50多家国际跨国公司在华代表在创业初期要寻找这些梦之队:没有成功，渴望成功，平凡，团结，有共同理想的人。2003年每天收入100万元，2004年每天盈利100万元，2005年每天纳税100万元。拥有好的业绩和产品，同事技巧性地为自己选定一个对标物，这会让你的公司和产品赢得大量关注。“裸奔”和淘宝的倒立与武侠一样，都是极易被识别的与众不同的公司文化符号，也极易产生传播效应。好的商人不在于他的梦想多么伟大，但是他的梦想必须是独特的，任何一个成功的企业家，从第一天起都有一个独特的梦想。2005.8.11雅虎中国并入阿里巴巴。资产技术+10亿美元，获得阿里40%股份。一个公司如果并购另外一个公司的话，文化融合是一件很难的事情。聪明是智慧者的天敌，傻瓜用嘴说话，聪明的人用脑子说话，智慧的人用心讲话。所以永远要记住，不要把自己当成最聪明的人，最聪明的人相信总有别人比自己更聪明。作为一个领导人，应该控制自己的情绪，很多时候发脾气是无能的表现，合理的情绪控制对于团队的和谐，稳定军心有很大作用。改变别人，先改变自己;要完善世界，先完善自己;要帮助好别人，先帮助自己;如果你不能帮助好自己，那一切都是瞎扯。人与人之间最本质的区别不是技能、专业、能力、情商，而是人生的使命感和价值观，而企业同理。先付出，再得到。没有使命感，人生会找不到奋斗的意义;没价值诶观，奋斗的方式会扭曲。80后，90后，我觉得是我的产品，我们没有理由、权利和责任区批判我们的产品，我们唯一有的权利和责任是完善我们的产品。真正的幸福感是你知道自己在做什么，知道别人在做什么，你会逐渐从痛苦中找到那些快乐。如果你想成功，积极乐观地看待任何问题]]></content>
+      <categories>
+        <category>reading</category>
+      </categories>
+      <tags>
+        <tag>穿布鞋的马云</tag>
       </tags>
   </entry>
   <entry>
@@ -1000,7 +1012,7 @@
       </categories>
       <tags>
         <tag>java</tag>
-        <tag>面试题</tag>
+        <tag>面试</tag>
       </tags>
   </entry>
   <entry>
@@ -1943,7 +1955,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[win下ssh连接VirtualBox Ubuntu 16虚拟机]]></title>
+    <title><![CDATA[Windows ssh连接 VirtualBox Ubuntu 16虚拟机]]></title>
     <url>%2F20170218-win%E4%B8%8Bssh%E8%BF%9E%E6%8E%A5VirtualBox-Ubuntu-16%E8%99%9A%E6%8B%9F%E6%9C%BA%2F</url>
     <content type="text"><![CDATA[安装完虚拟机之后想在windows下用xshell链接Ubuntu虚拟机这种配置下，虚拟机能上网，又能跟win连接，感觉很完美VirtualBox的端口转发很不错，可以转发tomcat什么的准备工作1.给Ubuntu安装openssh-server1sudo apt-get install openssh-server2.查看虚拟机ip 我的是：10.0.2.15(看上面那段)123456789101112131415161718hisen@hisen-VirtualBox:/$ ifconfig -aenp0s3 Link encap:以太网 硬件地址 08:00:27:45:f3:35 inet 地址:10.0.2.15 广播:10.0.2.255 掩码:255.255.255.0 inet6 地址: fe80::ed57:82d2:60cb:7f96/64 Scope:Link UP BROADCAST RUNNING MULTICAST MTU:1500 跃点数:1 接收数据包:169175 错误:0 丢弃:0 过载:0 帧数:0 发送数据包:34436 错误:0 丢弃:0 过载:0 载波:0 碰撞:0 发送队列长度:1000 接收字节:210738565 (210.7 MB) 发送字节:3633455 (3.6 MB)lo Link encap:本地环回 inet 地址:127.0.0.1 掩码:255.0.0.0 inet6 地址: ::1/128 Scope:Host UP LOOPBACK RUNNING MTU:65536 跃点数:1 接收数据包:1718 错误:0 丢弃:0 过载:0 帧数:0 发送数据包:1718 错误:0 丢弃:0 过载:0 载波:0 碰撞:0 发送队列长度:1 接收字节:234769 (234.7 KB) 发送字节:234769 (234.7 KB)VirtualBox设置端口转发在VirtualBox启动页面，右键Ubuntu —&gt;设置网络 —&gt; 连接方式 —&gt; 网络地址转换(NAT)高级 —&gt; 端口转发 —&gt; 点击添加按钮名称协议主机IP主机端口子系统IP子系统端口sshTCP127.0.0.1222210.0.2.1522子系统ip写你的虚拟机ip即可xshell链接Ubuntu虚拟机在xshell链接Ubuntu虚拟机的时候ip写上麦的主机ip：127.0.0.1端口写上面的主机端口：2222然后上面配置的端口转发就可以转发到虚拟机上，顺利连接！！！]]></content>
       <categories>
@@ -1951,7 +1963,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>xshell连接Ubuntu虚拟机</tag>
+        <tag>ssh</tag>
+        <tag>shell</tag>
       </tags>
   </entry>
   <entry>
@@ -2015,12 +2028,11 @@
   <entry>
     <title><![CDATA[hexo百度抓取失败解决办法]]></title>
     <url>%2F20170216-hexo%E7%99%BE%E5%BA%A6%E6%8A%93%E5%8F%96%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[上一篇帖子说明了一下百度抓取不到的原因是因为github把百度爬虫给屏蔽了这里给出的解决办法是用hexo自动提交插件需要获取一个自动提交的token注册百度站长工具：http://zhanzhang.baidu.com添加你的hexo域名找到网页抓取 - 链接提交 - 下拉选择你的hexo站点数据提交方式 - 自动提交 - 主动推送(实时)推送接口接口调用地址： http://data.zz.baidu.com/urls?site=hisen.me&amp;token=XmxXyESxyz1hANxE复制上面token=后面的内容，那就是你的token安装自动提交插件：npm install hexo-baidu-url-submit –save编辑站点配置文件_config.yml，添加一下内容12345baidu_url_submit: count: 1 ## 提交最新的一个链接 host: www.hui-wang.info ## 在百度站长平台中注册的域名 token: your_token ## 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里! path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里加入新的deployer: 原来type前面是没有 - 的但是不这样处理执行hexo g 会报错12345deploy: - type: git repository: yoururl branch: master- type: baidu_url_submitter生成效果如下：1234567891011121314$ hexo gINFO Start processingINFO Generating Baidu urls for last 1 postsINFO Posts urls generated in baidu_urls.txthttp://hisen.me/20170216-hexo百度抓取失败解决办法/INFO Files loaded in 1.31 s$ hexo dINFO Deploy done: gitINFO Deploying: baidu_url_submitterINFO Submitting urlshttp://hisen.me/20170216-hexo百度抓取失败解决办法/&#123;&quot;remain&quot;:1,&quot;success&quot;:1&#125;INFO Deploy done: baidu_url_submitter感谢插件作者：王辉的博客]]></content>
+    <content type="text"><![CDATA[上一篇帖子说明了一下百度抓取不到的原因是因为github把百度爬虫给屏蔽了这里给出的解决办法是用hexo自动提交插件需要获取一个自动提交的token注册百度站长工具：http://zhanzhang.baidu.com添加你的hexo域名找到网页抓取 - 链接提交 - 下拉选择你的hexo站点数据提交方式 - 自动提交 - 主动推送(实时)推送接口接口调用地址： http://data.zz.baidu.com/urls?site=hisen.me&amp;token=XmxXyESxyz1hANxE复制上面token=后面的内容，那就是你的token安装自动提交插件：npm install hexo-baidu-url-submit –save编辑站点配置文件_config.yml，添加一下内容12345baidu_url_submit: count: 1 ## 提交最新的一个链接 host: www.hui-wang.info ## 在百度站长平台中注册的域名 token: your_token ## 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里! path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里加入新的deployer: 原来type前面是没有 - 的但是不这样处理执行hexo g 会报错12345deploy:- type: git repository: yoururl branch: master- type: baidu_url_submitter生成效果如下：1234567891011121314$ hexo gINFO Start processingINFO Generating Baidu urls for last 1 postsINFO Posts urls generated in baidu_urls.txthttp://hisen.me/20170216-hexo百度抓取失败解决办法/INFO Files loaded in 1.31 s$ hexo dINFO Deploy done: gitINFO Deploying: baidu_url_submitterINFO Submitting urlshttp://hisen.me/20170216-hexo百度抓取失败解决办法/&#123;&quot;remain&quot;:1,&quot;success&quot;:1&#125;INFO Deploy done: baidu_url_submitter感谢插件作者：王辉的博客]]></content>
       <categories>
         <category>软件</category>
       </categories>
       <tags>
-        <tag>hexo优化</tag>
         <tag>hexo</tag>
       </tags>
   </entry>
@@ -2143,23 +2155,21 @@
     <url>%2F20170213-MarkdownPad2%E6%B3%A8%E5%86%8C%E7%A0%81-20170213%2F</url>
     <content type="text"><![CDATA[MarkdownPad2注册码亲测有效：2017年2月13日 18:07:25邮箱：1Soar360@live.com授权密钥：1GBPduHjWfJU1mZqcPM3BikjYKF6xKhlKIys3i1MU2eJHqWGImDHzWdD6xhMNLGVpbP2M5SN6bnxn2kSE8qHqNY5QaaRxmO3YSMHxlv2EYpjdwLcPwfeTG7kUdnhKE0vVy4RidP6Y2wZ0q74f47fzsZo45JE2hfQBFi2O9Jldjp1mW8HUpTtLA2a5/sQytXJUQl/QKO0jUQY4pa5CCx20sV1ClOTZtAGngSOJtIOFXK599sBr5aIEFyH0K7H4BoNMiiDMnxt1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ==]]></content>
       <categories>
-        <category>软件</category>
+        <category>soft</category>
       </categories>
       <tags>
-        <tag>MarkdownPad2注册码</tag>
-        <tag>软件</tag>
-        <tag>MarkdownPad</tag>
+        <tag>soft</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[Hexo提速优化 - 压缩html、css、js by hexo-neat插件]]></title>
     <url>%2F20170211-Hexo%E6%8F%90%E9%80%9F%E4%BC%98%E5%8C%96-%E5%8E%8B%E7%BC%A9html%E3%80%81css%E3%80%81js-by-hexo-neat%E6%8F%92%E4%BB%B6%2F</url>
-    <content type="text"><![CDATA[hexo博客生成的HTML代码留有大量的空白通过搜索发现有不错的方法可以解决这个问题那就是安装一个插件！名字叫：hexo-neat安装命令行进入博客根目录，执行以下命令1npm install hexo-neat --save如果使用的是淘宝的cnmp执行以下命令1cnpm install hexo-neat --save配置打开站点配置文件_config.yml，添加以下内容：12345678910111213141516171819#hexo-neat 优化提速插件neat_enable: trueneat_html: enable: true exclude: neat_css: enable: true exclude: - &apos;*.min.css&apos;neat_js: enable: true mangle: true output: compress: exclude: - &apos;*.min.js&apos;安装好之后，就直接正常使用(跟以前没有装的时候一样使用)，重新生成博客就可以发现html源码已经压缩了只是在生成博客的过程中可能要浪费一丁点时间访问速度有所提升！参考：点击查看]]></content>
+    <content type="text"><![CDATA[hexo博客生成的HTML代码留有大量的空白通过搜索发现有不错的方法可以解决这个问题那就是安装一个插件！名字叫：hexo-neat安装命令行进入博客根目录，执行以下命令1npm install hexo-neat --save如果使用的是淘宝的cnmp执行以下命令1cnpm install hexo-neat --save配置打开站点配置文件_config.yml，添加以下内容：12345678910111213141516171819#hexo-neat 优化提速插件neat_enable: trueneat_html: enable: true exclude:neat_css: enable: true exclude: - &apos;*.min.css&apos;neat_js: enable: true mangle: true output: compress: exclude: - &apos;*.min.js&apos;安装好之后，就直接正常使用(跟以前没有装的时候一样使用)，重新生成博客就可以发现html源码已经压缩了只是在生成博客的过程中可能要浪费一丁点时间访问速度有所提升！参考：点击查看]]></content>
       <categories>
         <category>软件</category>
       </categories>
       <tags>
-        <tag>hexo优化</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2202,10 +2212,10 @@
     <url>%2F20170210-windows10-%E4%B8%93%E4%B8%9A%E7%89%88%E6%BF%80%E6%B4%BB%E5%AF%86%E9%92%A5%2F</url>
     <content type="text"><![CDATA[2017年2月10日 16:03:48亲测可用，这比激活工具方便多了1234567891011VK7JG-NPHTM-C97JM-9MPGT-3V66TNPPR9-FWDCX-D2C8J-H872K-2YT43W269N-WFGWX-YVC9B-4J6C9-T83GXNYW94-47Q7H-7X9TT-W7TXD-JTYPMNJ4MX-VQQ7Q-FP3DB-VDGHX-7XM87MH37W-N47XK-V7XM9-C7227-GCQG9]]></content>
       <categories>
-        <category>软件</category>
+        <category>soft</category>
       </categories>
       <tags>
-        <tag>windows10专业版激活密钥</tag>
+        <tag>soft</tag>
       </tags>
   </entry>
   <entry>
@@ -2216,7 +2226,6 @@
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>hexo优化</tag>
         <tag>hexo</tag>
       </tags>
   </entry>
@@ -2225,7 +2234,7 @@
     <url>%2F20170209-Hexo-%E7%BB%91%E5%AE%9A%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D%E7%AE%80%E5%8D%95%E6%96%B9%E6%B3%95%2F</url>
     <content type="text"><![CDATA[1.直接注册个域名(随便在哪里)2.添加域名解析记录类型主机记录记录值CNAME@hisen-yuan.github.io主机记录：@ 代表顶级域名，例如hisen.me 如果想要www.hisen.me把@改成www记录值：你的博客原始地址3.在\blog\source下添加CNAME文件，没有后缀名，内容为你的域名，注意不要带http://我的域名解析为 hisen.me 文件内容为 hisen.me等待解析生效即可！]]></content>
       <tags>
-        <tag>hexo优化</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2233,7 +2242,7 @@
     <url>%2F20170208-Hexo-Landscape%E4%B8%BB%E9%A2%98JS%E4%BC%98%E5%8C%96%EF%BC%8C%E4%B8%8D%E4%BD%BF%E7%94%A8%E8%B0%B7%E6%AD%8CCDN%2F</url>
     <content type="text"><![CDATA[jQuery库的优化修改这个文件：1themes/landscape/layout/_partial/after-footer.ejs将17行左右的1&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js&quot;&gt;&lt;/script&gt;改为1&lt;script src=&quot;http://apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js&quot;&gt;&lt;/script&gt;重新生成博客之后就把谷歌的cdn替换成百度的cdn了]]></content>
       <tags>
-        <tag>hexo优化</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2372,7 +2381,6 @@
       <tags>
         <tag>hexo</tag>
         <tag>github</tag>
-        <tag>安装</tag>
       </tags>
   </entry>
   <entry>
