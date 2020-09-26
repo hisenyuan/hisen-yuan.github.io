@@ -1,1 +1,1 @@
-http://hisen.me/20200915-the-puzzle-of-mysql-using-index-which-violation-of-leftmost-matching-principle/
+http://hisen.me/20200926-BeanUtils-copyLimitedProperties-for-better-performance-of-response/
