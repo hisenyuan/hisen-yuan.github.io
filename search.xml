@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[英语文档：how-to-manage-a-redis-database.pdf]]></title>
     <url>%2F20201010-how-to-manage-a-redis-database%2F</url>
-    <content type="text"><![CDATA[当初这个文档应该是在『科技爱好者周刊』上还是哪里发现的看这个文档本来的目的是每天坚持阅读英文文档技术文档一般都比较简洁易懂，英语是一个长期的过程，还得继续坚持阅读~看的过程中发现，结合一定的场景，和示例和官方文档相比，没有那么枯燥，也更好理解甚至有一些之前未曾关注的用法让我感到经验所以推荐一下下载地址：how-to-manage-a-redis-database.pdf]]></content>
+    <content type="text"><![CDATA[当初这个文档应该是在『科技爱好者周刊』上还是哪里发现的看这个文档本来的目的是每天坚持阅读英文文档技术文档一般都比较简洁易懂，英语是一个长期的过程，还得继续坚持阅读~看的过程中发现，结合一定的场景，和示例和官方文档相比，没有那么枯燥，也更好理解甚至有一些之前未曾关注的用法让我感到惊艳所以推荐一下下载地址：how-to-manage-a-redis-database.pdf]]></content>
       <categories>
         <category>database</category>
       </categories>
@@ -12,7 +12,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[BeanUtils 对象拷贝 - 仅拷贝指定属性 - 为了更好的响应性能]]></title>
+    <title><![CDATA[BeanUtils 对象拷贝 - 仅拷贝指定属性 - 接口性能优化]]></title>
     <url>%2F20200926-BeanUtils-copyLimitedProperties-for-better-performance-of-response%2F</url>
     <content type="text"><![CDATA[零、背景很多时候我们调用接口并不是需要接口返回的所有信息;就像查询数据库很少使用 select * from table; 一样;为了使现有的存储结构以及代码逻辑改动最少想办法在最外层的接口对返回的对象进行精简目的使为了提高接口性能：减少 RPC 传输时间、节省网络带宽、节省序列化开销一、方案直接创建一个对象，根据入参传入的所需字段，写一堆 if else 进行 get set;使用序列化工具，转为类似 Map 结构，取值拼装;使用 BeanWrapper 操作对象;前面两种比较呆板，属于定制化开发;二、实践Spring BeanWrapper 方案处理非集合对象比较完美，输出对象小不少;基本数据类型有默认值，无法去除，不过这种对大小影响不大;完整代码：github.com12345678910111213public static void main(String[] args) &#123; Order order = getOrder(); Order smallerOrder = new Order(); List&lt;String&gt; keepFields = Lists.newArrayList(); keepFields.add("orderId"); keepFields.add("address.province"); // i want get all names, not only index 1, how to do ? keepFields.add("productInfos[1].name"); copyLimitedProperties(order, smallerOrder, keepFields); Gson gson = new Gson(); System.out.println("src:" + gson.toJson(order)); System.out.println("des" + gson.toJson(smallerOrder));&#125;输出 src:123456789101112131415161718192021222324252627282930&#123; "address": &#123; "province": "B", "city": "A", "county": "C" &#125;, "productInfos": [ &#123; "productId": 0, "name": "name0", "price": 1, "num": 0, "imgUrl": "url1" &#125;, &#123; "productId": 0, "name": "name1", "price": 2, "num": 0, "imgUrl": "url1" &#125;, &#123; "productId": 0, "name": "name2", "price": 3, "num": 0, "imgUrl": "url1" &#125; ]&#125;输出dst12345678910111213141516&#123; "address": &#123; "province": "B" &#125;, "productInfos": [ &#123; "productId": 0, "num": 0 &#125;, &#123; "productId": 0, "name": "name1", "num": 0 &#125; ]&#125;三、缺点目前 Spring BeanWrapper 处理集合类型比较费劲，需要告知一个个具体的路径比如：productInfos[1].name如果能做到 productInfos[any].name 这种，然后取出所有 index 的属性，就比较完美(目前解决方法：通过自定义处理，遇到 any 标识，自动补全所有 index 的 key 即可，只是不那么优雅)缺陷原因：内部逻辑直接用 key 转换为 index ，没有 any 逻辑。123456else if (value instanceof List) &#123; index = Integer.parseInt(key); List&lt;Object&gt; list = (List)value; this.growCollectionIfNecessary(list, index, indexedPropertyName, ph, i + 1); value = list.get(index); &#125;代码位置：org.springframework.beans.AbstractNestablePropertyAccessor#getPropertyValue四、参考Spring 官方文档：Bean Manipulation and the BeanWrapper]]></content>
       <categories>
