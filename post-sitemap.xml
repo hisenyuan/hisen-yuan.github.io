@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://hisen.me/20201010-how-to-manage-a-redis-database/</loc>
+        <lastmod>2020-10-09T17:22:04.597Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://hisen.me/20200926-BeanUtils-copyLimitedProperties-for-better-performance-of-response/</loc>
         <lastmod>2020-10-09T12:08:23.593Z</lastmod>
         <changefreq>weekly</changefreq>

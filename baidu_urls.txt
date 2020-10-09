@@ -1,1 +1,1 @@
-http://hisen.me/20200926-BeanUtils-copyLimitedProperties-for-better-performance-of-response/
+http://hisen.me/20201010-how-to-manage-a-redis-database/
