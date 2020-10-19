@@ -1,1 +1,1 @@
-http://hisen.me/20201010-how-to-manage-a-redis-database/
+http://hisen.me/20201019-java-hotspot-vm-cms-g1-setting-log/
