@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://hisen.me/20201026-Understanding-Linux-Load-Averages/</loc>
+        <lastmod>2020-10-26T11:02:36.012Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://hisen.me/20201019-java-hotspot-vm-cms-g1-setting-log/</loc>
         <lastmod>2020-10-19T13:26:20.388Z</lastmod>
         <changefreq>weekly</changefreq>

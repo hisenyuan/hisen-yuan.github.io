@@ -1,1 +1,1 @@
-http://hisen.me/20201019-java-hotspot-vm-cms-g1-setting-log/
+http://hisen.me/20201026-Understanding-Linux-Load-Averages/
