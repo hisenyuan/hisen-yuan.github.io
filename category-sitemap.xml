@@ -168,15 +168,15 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/categories/java/</loc>
-        <lastmod>2020-10-19T13:26:20.388Z</lastmod>
+        <loc>http://hisen.me/categories/linux/</loc>
+        <lastmod>2020-10-30T02:37:38.951Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://hisen.me/categories/linux/</loc>
-        <lastmod>2020-10-30T02:37:38.951Z</lastmod>
+        <loc>http://hisen.me/categories/java/</loc>
+        <lastmod>2020-10-30T06:13:55.500Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
