@@ -1,1 +1,1 @@
-http://hisen.me/20201030-understanding-computer-storage-unit/
+http://hisen.me/20201107-Shell-batch-decompression-and-rename/
