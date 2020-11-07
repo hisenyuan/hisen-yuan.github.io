@@ -84,13 +84,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/categories/sql/</loc>
-        <lastmod>2019-04-29T13:42:46.730Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/categories/reading/</loc>
         <lastmod>2019-09-04T13:06:32.191Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -126,13 +119,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/categories/mysql/</loc>
-        <lastmod>2020-09-16T01:45:10.843Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/categories/hexo/</loc>
         <lastmod>2020-09-16T01:48:20.850Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -154,29 +140,43 @@
     </url>
 
     <url>
+        <loc>http://hisen.me/categories/%E9%9A%8F%E8%AF%B4/</loc>
+        <lastmod>2020-11-07T15:15:30.207Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/categories/mysql/</loc>
+        <lastmod>2020-11-07T15:30:15.291Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://hisen.me/categories/database/</loc>
-        <lastmod>2020-10-09T17:34:44.069Z</lastmod>
+        <lastmod>2020-11-07T15:32:32.715Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/categories/sql/</loc>
+        <lastmod>2020-11-07T15:32:58.903Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://hisen.me/categories/java/</loc>
-        <lastmod>2020-10-30T06:13:55.500Z</lastmod>
+        <lastmod>2020-11-07T16:14:31.094Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://hisen.me/categories/linux/</loc>
-        <lastmod>2020-11-07T15:09:05.337Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hisen.me/categories/%E9%9A%8F%E8%AF%B4/</loc>
-        <lastmod>2020-11-07T15:15:30.207Z</lastmod>
+        <lastmod>2020-11-07T16:18:28.683Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

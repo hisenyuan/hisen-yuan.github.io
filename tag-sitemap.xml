@@ -387,13 +387,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/oracle/</loc>
-        <lastmod>2018-07-17T15:45:35.572Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/StringBuilder/</loc>
         <lastmod>2018-07-17T15:45:39.702Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -450,13 +443,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/sql/</loc>
-        <lastmod>2019-02-18T02:14:00.517Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/netty/</loc>
         <lastmod>2019-03-07T12:10:30.375Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -508,13 +494,6 @@
     <url>
         <loc>http://hisen.me/tags/%E5%BC%82%E5%B8%B8/</loc>
         <lastmod>2019-04-29T09:00:56.971Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hisen.me/tags/cache/</loc>
-        <lastmod>2019-04-29T13:40:41.600Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -639,13 +618,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/mysql/</loc>
-        <lastmod>2020-09-16T06:23:57.419Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/index/</loc>
         <lastmod>2020-09-16T06:23:57.419Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -653,29 +625,8 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/redis/</loc>
-        <lastmod>2020-10-09T17:34:44.069Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/database/</loc>
         <lastmod>2020-10-09T17:34:44.069Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hisen.me/tags/linux/</loc>
-        <lastmod>2020-10-30T02:37:38.951Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hisen.me/tags/java/</loc>
-        <lastmod>2020-10-30T06:13:55.500Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -690,6 +641,55 @@
     <url>
         <loc>http://hisen.me/tags/%E9%9A%8F%E8%AF%B4/</loc>
         <lastmod>2020-11-07T15:15:30.207Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/mysql/</loc>
+        <lastmod>2020-11-07T15:30:15.291Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/oracle/</loc>
+        <lastmod>2020-11-07T15:32:00.164Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/sql/</loc>
+        <lastmod>2020-11-07T15:32:32.715Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/redis/</loc>
+        <lastmod>2020-11-07T15:32:58.903Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/cache/</loc>
+        <lastmod>2020-11-07T16:14:31.094Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/java/</loc>
+        <lastmod>2020-11-07T16:18:13.368Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/linux/</loc>
+        <lastmod>2020-11-07T16:18:28.683Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

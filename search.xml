@@ -334,9 +334,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[缓存那些事儿 - 本地缓存(ecache|guava)|分布式缓存(memcache|redis)]]></title>
-    <url>%2F20190429-%E7%BC%93%E5%AD%98%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF%20-%20%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98(ecache%7Cguava)%7C%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98(memcache%7Credis)%2F</url>
-    <content type="text"><![CDATA[ps：时间比较仓促，写的比较粗糙，后期再优化；一、为什么用缓存1.1 空间换时间：缓存是针对读多写少的场景典型的以空间换时间的操作空间：内存时间：读内存速度快(相对于读磁盘)1.2 局部性原理：这个世界很多事情都符合28原则把热点数据缓存起来就大大提高系统效率二、缓存组件选择2.1 Ecache快速，针对大型高并发系统场景，Ehcache的多线程机制有相应的优化改善;简单，很小的jar包，简单配置就可直接使用，单机场景下无需过多的其他服务依赖;支持多种的缓存策略，灵活;缓存数据有两级：内存和磁盘，与一般的本地内存缓存相比，有了磁盘的存储空间，将可以支持更大量的数据缓存需求;具有缓存和缓存管理器的侦听接口，能更简单方便的进行缓存实例的监控管理;支持多缓存管理器实例，以及一个实例的多个缓存区域;2.2 Guava自动将entry节点加载进缓存结构中；当缓存的数据超过设置的最大值时，使用LRU算法移除；具备根据entry节点上次被访问或者写入时间计算它的过期机制；缓存的key被封装在WeakReference引用内；缓存的Value被封装在WeakReference或SoftReference引用内；统计缓存使用过程中命中率、异常率、未命中率等统计数据;2.3 Memcachememcache使用预分配内存池的方式管理内存;所有数据存储在物理内存里;非阻塞IO复用模型，纯KV存取操作;多线程，效率高，会遇到锁等，上下文切换问题;只支持简单KV数据类型;数据不支持持久化;2.4 Redis临时申请空间，可能导致碎片;有VM机制，能存储更多数据，超过内存空间后会导致swap，降低效率;非阻塞IO复用模型，支持额外CPU计算：排序、聚合，会影响IO性能;单线程，无锁，无上下文切换，单实例无法利用多核性能;支持多种数据类型：string / hash / list / set / sorted set数据支持持久化：AOF(语句增量)/RDB(fork全量)天然支持高可用分布式方案sentinel + cluster(故障自动转移+集群)三、正确使用缓存3.1 读场景：先读缓存、再读DB如果是并发读缓存失效，使用分布式锁只允许单次查询，其它等待，超时返回失败3.2 写场景：先delete缓存、再更新数据库当删除缓存失败，直接返回异常当写数据库失败，返回异常不会导致数据不一致问题四、缓存问题集合4.1 数据库主从结构不一致导致解决方案①：从同步完成之后，删除对应key的缓存，又短暂数据不一致问题;解决方案②：不一致期间，强制读取主库，upd某数据时，把key放在缓存标识有更新，读取操作看到有更新标识强制读主库4.2 缓存穿透解决方案：当查询到某数据不存在时，缓存假数据，例如：(key,key#);4.3 缓存雪崩解决方案：缓存高可用(集群+主备)，循环一致性Hahs方案(打的会比较均匀，不至于一个节点出问题，多米乐骨牌效应压垮所有数据)五、参考链接架构师之路18年精选100篇 | 缓存部分 - 58沈剑缓存那些事 | 美团技术博客]]></content>
+    <title><![CDATA[缓存那些事儿 - 从组件到实践]]></title>
+    <url>%2F20190429-things-about-caching%2F</url>
+    <content type="text"><![CDATA[一、为什么用缓存1.1 空间换时间：缓存是针对读多写少的场景典型的以空间换时间的操作空间：内存时间：读内存速度快(相对于读磁盘)1.2 局部性原理：这个世界很多事情都符合 2/8 原则把热点数据缓存起来就大大提高系统效率二、缓存组件介绍2.1 Ehcache快速，针对大型高并发系统场景，Ehcache 的多线程机制有相应的优化改善;简单，很小的 jar 包，简单配置就可直接使用，单机场景下无需过多的其他服务依赖;支持多种的缓存策略，灵活;缓存数据有两级：内存和磁盘，与一般的本地内存缓存相比，有了磁盘的存储空间，将可以支持更大量的数据缓存需求;具有缓存和缓存管理器的侦听接口，能更简单方便的进行缓存实例的监控管理;支持多缓存管理器实例，以及一个实例的多个缓存区域;2.2 Guava自动将 entry 节点加载进缓存结构中；当缓存的数据超过设置的最大值时，使用 LRU 算法移除；具备根据 entry 节点上次被访问或者写入时间计算它的过期机制；缓存的 key 被封装在 WeakReference 引用内；缓存的 Value 被封装在W eakReference 或 SoftReference 引用内；统计缓存使用过程中命中率、异常率、未命中率等统计数据;2.3 Memcachememcache 使用预分配内存池的方式管理内存;所有数据存储在物理内存里;非阻塞 I/O 复用模型，纯 KV 存取操作;多线程，效率高，会遇到锁等，上下文切换问题;只支持简单 KV 数据类型;数据不支持持久化;2.4 Redis临时申请空间，可能导致碎片;有 VM 机制，能存储更多数据，超过内存空间后会导致 swap，降低效率;非阻塞 I/O 复用模型，支持额外 CPU 计算：排序、聚合，会影响 I/O 性能;单线程，无锁，无上下文切换，单实例无法利用多核性能;支持多种数据类型：string / hash / list / set / sorted set数据支持持久化：AOF(语句增量) / RDB(fork全量)天然支持高可用分布式方案 sentinel + cluster (故障自动转移+集群)三、正确使用缓存3.1 读场景先读缓存、再读DB如果是并发读缓存失效，使用分布式锁只允许单次查询，其它等待，超时返回失败3.2 写场景cache 指的是删除『缓存』db 指的是『更新/删除数据库』3.2.1 先 cache 后 db删除缓存成功，更新数据库失败，不影响数据准确性。如果在 cache 与 db 短暂的时间内有访问查询动作(先查缓存，后查 db 并且设置缓存)那么还缓存中还是会存在过期的数据3.2.2 先 db 后 cache如果 db 成功，cache 失败，会导致数据不一致。可以让 db cache 在一个事务，cache 失败回滚 db，保证一致性。3.2.3 方案总结其实本质上就是个分布式事务问题怎么保证两个操作同时成功/失败通过本地事务 / 补偿机制 实现会比较好四、缓存问题集合4.1 缓存穿透解决方案：当查询到某数据不存在时，缓存假数据，例如：(key,key#);4.2 缓存雪崩缓存高可用(集群+主备)循环一致性 Hash，节点组成一个环，如果一个节点挂了，顺着往下走;五、参考链接架构师之路18年精选100篇 | 缓存部分 - 58沈剑缓存那些事 | 美团技术博客]]></content>
       <categories>
         <category>java</category>
       </categories>
@@ -413,8 +413,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[linux命令统计出现次数前10的次数和IP | awk sort unip等组合]]></title>
-    <url>%2F20190410-linux%E5%91%BD%E4%BB%A4%E7%BB%9F%E8%AE%A1%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E5%89%8D10%E7%9A%84%E6%AC%A1%E6%95%B0%E5%92%8CIP%20%7C%20awk%20sort%20unip%E7%AD%89%E7%BB%84%E5%90%88%2F</url>
+    <title><![CDATA[Linux 命令统计出现次数前10的次数和IP | awk sort uniq]]></title>
+    <url>%2F20190410-Linux%E5%91%BD%E4%BB%A4%E7%BB%9F%E8%AE%A1%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E5%89%8D10%E7%9A%84%E6%AC%A1%E6%95%B0%E5%92%8CIP%20%7C%20awk%20sort%20unip%E7%AD%89%E7%BB%84%E5%90%88%2F</url>
     <content type="text"><![CDATA[一、命令组合1234$ more sort.log | awk &apos;&#123;print $1&#125;&apos; | sort | uniq -c | sort -k1nr | head -3 4 5 3 1 2 2二、命令详解more：一次读取少量的数据，避免一次性载入大文件，比cat好些awk ‘{print $1}’：以awk默认的分隔符，并且打印第一列sort：把上一步的结果按ASCII排序uniq -c：如果重复那么计数，uniq命令可以组合很多其它参数sort -k1nr：根据第一列的数据进行排序，n是按数值大小排序，r是倒序排序head -3：显示前面三行数据三、原始数据12345678910111213141516$ cat sort.log123456112345556]]></content>
       <categories>
         <category>linux</category>
@@ -809,7 +809,7 @@
   </entry>
   <entry>
     <title><![CDATA[redis counter demo - redis并发计数器]]></title>
-    <url>%2F20180111-redis%20counter%20demo%20-%20%20redis%E5%B9%B6%E5%8F%91%E8%AE%A1%E6%95%B0%E5%99%A8%2F</url>
+    <url>%2F20180111-Redis%20counter%20demo%20-%20%20redis%E5%B9%B6%E5%8F%91%E8%AE%A1%E6%95%B0%E5%99%A8%2F</url>
     <content type="text"><![CDATA[一、说明利用redis操作的原子性，实现java 多线程并发的情况下实现计数器。我本机测试多个线程操作之后，结果会出现一定的延迟，但是最终数字是ok的应该是redis内部做了一个类似于队列的功能。需要注意的是，得使用redis连接的线程池，不然会出现异常这里有一个：JedisUtil 下面用到了二、 代码实现2.1 redis操作类12345678910111213141516171819202122232425262728package com.hisen.thread.count_click_by_redis;import com.hisen.utils.JedisUtil;import redis.clients.jedis.JedisPool;/** * @author hisenyuan * @description 操作redis的线程类 */public class ClickRedis &#123; /** * 必须使用线程池，而且线程池要大于并发数，否则会出现redis超时 */ private static JedisPool jedis = JedisUtil.getPool(); public static void click() &#123; jedis.getResource().incrBy(&quot;hisen&quot;, 1); &#125; public static int getCount() &#123; return Integer.parseInt(jedis.getResource().get(&quot;hisen&quot;)); &#125; public static void declare() &#123; jedis.getResource().del(&quot;hisen&quot;); jedis.close(); &#125;&#125;2.2 线程类,模拟点击123456789101112131415161718192021package com.hisen.thread.count_click_by_redis;/** * @author hisenyuan * @description 执行点击的线程类 */public class CountClickByRedisThread extends Thread&#123; private int id; public CountClickByRedisThread(int id) &#123; this.id = id; &#125; @Override public void run() &#123; super.run(); ClickRedis.click(); int count = ClickRedis.getCount(); System.out.println(&quot;task:&quot; + id + &quot;\t 执行完毕\t线程编号：&quot; + this.getId() + &quot;\t当前值：&quot; + count); &#125;&#125;2.3 主线程 - 启动类123456789101112131415161718192021222324252627282930313233343536373839404142package com.hisen.thread.count_click_by_redis;import java.util.concurrent.ArrayBlockingQueue;import java.util.concurrent.ThreadPoolExecutor;import java.util.concurrent.TimeUnit;public class Main &#123; public static void main(String[] args) throws InterruptedException &#123; /** * 5 - corePoolSize：核心池的大小 * 10 - maximumPoolSize：线程池最大线程数，它表示在线程池中最多能创建多少个线程 * 200 - keepAliveTime：表示线程没有任务执行时最多保持多久时间会终止。 * unit - unit：参数keepAliveTime的时间单位，有7种取值 * workQueue：一个阻塞队列，用来存储等待执行的任务 */ ThreadPoolExecutor executor = new ThreadPoolExecutor( 50, 100, 200, TimeUnit.MICROSECONDS, new ArrayBlockingQueue&lt;Runnable&gt;(50)); // 开启50个线程 for (int i = 0; i &lt; 50; i++) &#123; executor.execute(new CountClickByRedisThread(i)); &#125; System.out.println(&quot;已经开启所有的子线程&quot;); // 启动一次顺序关闭，执行以前提交的任务，但不接受新任务。 executor.shutdown(); // 判断所有线程是否已经执行完毕 while (true) &#123; if (executor.isTerminated()) &#123; System.out.println(&quot;所有的子线程都结束了！&quot;); // 清除redis数据 ClickRedis.declare(); break; &#125; Thread.sleep(100); &#125; &#125;&#125;]]></content>
       <categories>
         <category>sql</category>
@@ -899,8 +899,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[oracle - mysql - 数据库事务隔离级别介绍]]></title>
-    <url>%2F20171114-oracle%20-%20mysql%20-%20%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E4%BB%8B%E7%BB%8D%2F</url>
+    <title><![CDATA[Oracle - MySQL - 数据库事务隔离级别介绍]]></title>
+    <url>%2F20171114-Oracle%20-%20MySQL%20-%20%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E4%BB%8B%E7%BB%8D%2F</url>
     <content type="text"><![CDATA[名词解释脏读: 对于两个事物 T1, T2, T1 读取了已经被 T2 更新但还没有被提交的字段. 之后, 若 T2 回滚, T1读取的内容就是临时且无效的.不可重复读: 对于两个事物 T1, T2, T1 读取了一个字段, 然后 T2 更新了该字段. 之后, T1再次读取同一个字段, 值就不同了.幻读: 对于两个事物 T1, T2, T1 从一个表中读取了一个字段, 然后 T2 在该表中插入了一些新的行. 之后, 如果 T1 再次读取同一个表, 就会多出几行.数据库的4个事物隔离级别√：可能会出现×：为不会出现name名称级别脏读不可重复读幻读Read uncommitted读未提交1√√√Read committed读提交2×√√Repeatable read重复读3××√Serializable序列化4×××oracleOracle 支持的 2 种事务隔离级别：READ COMMITED, SERIALIZABLE.Oracle 默认的事务隔离级别为: READ COMMITEDmysqlMysql 支持 4 中事务隔离级别.Mysql 默认的事务隔离级别为: REPEATABLE READ延伸参考：https://www.cnblogs.com/andy6/p/6045679.html]]></content>
       <categories>
         <category>sql</category>
@@ -969,8 +969,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[oracle取微秒 - 记录点滴]]></title>
-    <url>%2F20170923-oracle%E5%8F%96%E5%BE%AE%E7%A7%92%20-%20%E8%AE%B0%E5%BD%95%E7%82%B9%E6%BB%B4%2F</url>
+    <title><![CDATA[Oracle 取微秒 - 记录点滴]]></title>
+    <url>%2F20170923-Oracle-%E5%8F%96%E5%BE%AE%E7%A7%92-%E8%AE%B0%E5%BD%95%E7%82%B9%E6%BB%B4%2F</url>
     <content type="text"><![CDATA[昨天在群里看到有人问怎么通过sql在oracle中取微秒以前没有遇到过，就搜索了一下，找了一会给找到了1select to_char(systimestamp, &apos;yyyy-mm-dd hh24:mi:ss ff&apos;) from dual;输出:年-月-日 时:分:秒 微秒12017-9-24 10:38:27 129368很少问题是搜索引擎找不到的，学会如何描述问题才是关键]]></content>
       <categories>
         <category>java</category>
@@ -1287,8 +1287,8 @@
   </entry>
   <entry>
     <title><![CDATA[oracle全局查找某字段所在的表]]></title>
-    <url>%2F20170612-oracle%E5%85%A8%E5%B1%80%E6%9F%A5%E6%89%BE%E6%9F%90%E5%AD%97%E6%AE%B5%E6%89%80%E5%9C%A8%E7%9A%84%E8%A1%A8%2F</url>
-    <content type="text"><![CDATA[下面这个存储过程是查找数据库中某个字段值为：hisen 的表12345678910111213141516171819declarel_cnt varchar2(20);v_sql varchar2(4000);v_tablename varchar(200); cursor cursor_jsdx is select &apos;select count(*) from &apos; || table_name || &apos; where NAME=&apos;&apos;hisen&apos;&apos;&apos;,table_name from user_tab_columns where column_name=&apos;NAME&apos;; --注：这里的字段名要大写 begin open cursor_jsdx; Loop fetch cursor_jsdx into v_sql,v_tablename; exit when cursor_jsdx%notfound; execute immediate v_sql into l_cnt; if l_cnt &gt;0 then ---如果该表有那内容的就打印那个表的名字。 dbms_output.put_line(v_tablename); end if; end loop; Close cursor_jsdx;end;]]></content>
+    <url>%2F20170612-Oracle%E5%85%A8%E5%B1%80%E6%9F%A5%E6%89%BE%E6%9F%90%E5%AD%97%E6%AE%B5%E6%89%80%E5%9C%A8%E7%9A%84%E8%A1%A8%2F</url>
+    <content type="text"><![CDATA[下面这个存储过程是查找数据库中某个字段值为：hisen 的表12345678910111213141516171819declarel_cnt varchar2(20);v_sql varchar2(4000);v_tablename varchar(200); cursor cursor_jsdx is select &apos;select count(*) from &apos; || table_name || &apos; where NAME=&apos;&apos;hisen&apos;&apos;&apos;,table_name from user_tab_columns where column_name=&apos;NAME&apos;; --注：这里的字段名要大写begin open cursor_jsdx; Loop fetch cursor_jsdx into v_sql,v_tablename; exit when cursor_jsdx%notfound; execute immediate v_sql into l_cnt; if l_cnt &gt;0 then ---如果该表有那内容的就打印那个表的名字。 dbms_output.put_line(v_tablename); end if; end loop; Close cursor_jsdx;end;]]></content>
       <categories>
         <category>sql</category>
       </categories>
@@ -1377,8 +1377,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[linux安装tree命令 - apt-get install tree]]></title>
-    <url>%2F20170503-linux%E5%AE%89%E8%A3%85tree%E5%91%BD%E4%BB%A4%20-%20apt-get%20install%20tree%2F</url>
+    <title><![CDATA[Linux安装tree命令 - apt-get install tree]]></title>
+    <url>%2F20170503-Linux%E5%AE%89%E8%A3%85tree%E5%91%BD%E4%BB%A4%20-%20apt-get%20install%20tree%2F</url>
     <content type="text"><![CDATA[目前debian系列的系统都无法使用apt-get install tree来安装tree命令以下是安装步骤123456789#下载（官网为：http://mama.indstate.edu/users/ice/tree/）wget http://mama.indstate.edu/users/ice/tree/src/tree-1.7.0.tgz#解压tar -zxvf tree-1.7.0.tgz#进入目录cd tree-1.7.0#安装sudo make install#完毕最简单的使用方法，在目录下输入：tree使用效果123456789101112131415161718192021222324252627282930313233hisen@ubuntu:~/dl$ tree.├── hisen.log├── master└── test_db-master ├── Changelog ├── employees_partitioned_5.1.sql ├── employees_partitioned.sql ├── employees.sql ├── images │ ├── employees.gif │ ├── employees.jpg │ └── employees.png ├── load_departments.dump ├── load_dept_emp.dump ├── load_dept_manager.dump ├── load_employees.dump ├── load_salaries1.dump ├── load_salaries2.dump ├── load_salaries3.dump ├── load_titles.dump ├── objects.sql ├── README.md ├── sakila │ ├── README.md │ ├── sakila-mv-data.sql │ └── sakila-mv-schema.sql ├── show_elapsed.sql ├── sql_test.sh ├── test_employees_md5.sql └── test_employees_sha.sql3 directories, 26 files使用参数12345678910111213141516171819202122tree命令行参数：-a 显示所有文件和目录。-A 使用ASNI绘图字符显示树状图而非以ASCII字符组合。-C 在文件和目录清单加上色彩，便于区分各种类型。-d 显示目录名称而非内容。-D 列出文件或目录的更改时间。-f 在每个文件或目录之前，显示完整的相对路径名称。-F 在执行文件，目录，Socket，符号连接，管道名称名称，各自加上&quot;*&quot;,&quot;/&quot;,&quot;=&quot;,&quot;@&quot;,&quot;|&quot;号。-g 列出文件或目录的所属群组名称，没有对应的名称时，则显示群组识别码。-i 不以阶梯状列出文件或目录名称。-I 不显示符合范本样式的文件或目录名称。-l 如遇到性质为符号连接的目录，直接列出该连接所指向的原始目录。-n 不在文件和目录清单加上色彩。-N 直接列出文件和目录名称，包括控制字符。-p 列出权限标示。-P 只显示符合范本样式的文件或目录名称。-q 用&quot;?&quot;号取代控制字符，列出文件和目录名称。-s 列出文件或目录大小。-t 用文件和目录的更改时间排序。-u 列出文件或目录的拥有者名称，没有对应的名称时，则显示用户识别码。-x 将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该子目录予以排除在寻找范围外。]]></content>
       <categories>
         <category>linux</category>
@@ -1491,14 +1491,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[oracle分页的三种方式]]></title>
-    <url>%2F20170411-oracle%E5%88%86%E9%A1%B5%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F%2F</url>
+    <title><![CDATA[Oracle 分页的三种方式]]></title>
+    <url>%2F20170411-Oracle%E5%88%86%E9%A1%B5%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[第一种：12345select * from (select t.*, rownum rn from (select * from EW_AUTH_FLOW) t where rownum &lt;= 5) where rn &gt; 2;第二种：123select * from (select t.*, rownum rn from ew_auth_flow t where rownum &lt;= 5) where rn &gt; 2;第三种：123select * from (select t.*, rownum rn from ew_auth_flow t) where rn between 2 and 5;]]></content>
       <categories>
-        <category>sql</category>
+        <category>database</category>
       </categories>
       <tags>
-        <tag>oracle</tag>
+        <tag>sql</tag>
       </tags>
   </entry>
   <entry>
@@ -1525,7 +1525,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[linux查看日志文件常用命令]]></title>
+    <title><![CDATA[Linux查看日志文件常用命令]]></title>
     <url>%2F20170407-linux%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[linux查看日志文件内容命令tail、cat、tac、head、echotail -f test.log你会看到屏幕不断有内容被打印出来. 这时候中断第一个进程Ctrl-C,cat -n hisen.log | grep ‘907’在文件当中查找指定的内容，这里是查询：907linux 如何显示一个文件的某几行(中间几行)从第3000行开始，显示1000行。即显示3000~3999行1cat filename | tail -n +3000 | head -n 1000显示1000行到3000行1cat filename| head -n 3000 | tail -n +1000*注意两种方法的顺序分解：tail -n 1000：显示最后1000行tail -n +1000：从1000行开始显示，显示1000行以后的head -n 1000：显示前面1000行用sed命令sed -n ‘5,10p’ filename 这样你就可以只查看文件的第5行到第10行。例：cat mylog.log | tail -n 1000 #输出mylog.log 文件最后一千行cat主要有三大功能：1.一次显示整个文件。$ cat filename2.从键盘创建一个文件。$ cat &gt; filename只能创建新文件,不能编辑已有文件.3.将几个文件合并为一个文件： $cat file1 file2 &gt; file参数：-n 或 –number 由 1 开始对所有输出的行数编号-b 或 –number-nonblank 和 -n 相似，只不过对于空白行不编号-s 或 –squeeze-blank 当遇到有连续两行以上的空白行，就代换为一行的空白行-v 或 –show-nonprinting例：把 textfile1 的档案内容加上行号后输入 textfile2 这个档案里1cat -n textfile1 &gt; textfile2把 textfile1 和 textfile2 的档案内容加上行号（空白行不加）之后将内容附加到 textfile3 里。1cat -b textfile1 textfile2 &gt;&gt; textfile3把test.txt文件扔进垃圾箱，赋空值test.txt1cat /dev/null &gt; /etc/test.txt注意：&gt;意思是创建，&gt;&gt;是追加。千万不要弄混了。tac (反向列示)tac 是将 cat 反写过来，所以他的功能就跟 cat 相反， cat 是由第一行到最后一行连续显示在萤幕上，而 tac 则是由最后一行到第一行反向在萤幕上显示出来！在Linux中echo命令用来在标准输出上显示一段字符，比如：echo “the echo command test!”这个就会输出“the echo command test!”这一行文字！echo “the echo command test!”&gt;a.sh这个就会在a.sh文件中输出“the echo command test!”这一行文字！该命令的一般格式为： echo [ -n ] 字符串其中选项n表示输出文字后不换行；字符串能加引号，也能不加引号。用echo命令输出加引号的字符串时，将字符串原样输出；用echo命令输出不加引号的字符串时，将字符串中的各个单词作为字符串输出，各字符串之间用一个空格分割。一些实例1234567891011121314151617181920212223242526272829303132333435363738394041424344#在整个文件搜索含有907的内容hisen@ubuntu:~/dl$ cat -n hisen.log | grep &apos;907&apos; 25 [2017-04-07 03:49:04,907] Artifact ssm_study:war exploded: Art 26 [2017-04-07 03:49:04,907] Artifact ssm_study:war exploded: Dep#从第3行开始,显示10行 即：3~12 并且显示行号hisen@ubuntu:~/dl$ cat -n hisen.log | tail -n +3 | head -n 10 3 07-Apr-2017 15:48:50.072 信息 [main] org.apache.coyote.Abstrac 4 07-Apr-2017 15:48:50.137 信息 [main] Using a shared selector f 5 07-Apr-2017 15:48:50.172 测试 [main] Initializing ProtocolHand 6 07-Apr-2017 15:48:50.186 信息 [main] Using a shared selector f 7 07-Apr-2017 15:48:50.187 你猜 [main] load Initialization proce 8 07-Apr-2017 15:48:50.261 信息 [main] StandardService.startInte 9 07-Apr-2017 15:48:50.261 信息 [main] Servlet Engine: Apache To 10 07-Apr-2017 15:48:50.293 信息 [main] Starting ProtocolHandler 11 07-Apr-2017 15:48:50.318 哪里 [main] ProtocolHandler [ajp-nio- 12 07-Apr-2017 15:48:50.328 信息 [main] start Server startup in 1#显示10行前三行hisen@ubuntu:~/dl$ cat -n hisen.log | head -n +10 | tail -n 3 8 07-Apr-2017 15:48:50.261 信息 [main] StandardService.startInte 9 07-Apr-2017 15:48:50.261 信息 [main] Servlet Engine: Apache To 10 07-Apr-2017 15:48:50.293 信息 [main] Starting ProtocolHandler#显示3-10行hisen@ubuntu:~/dl$ cat -n hisen.log | head -n 10 | tail -n +3 3 07-Apr-2017 15:48:50.072 信息 [main] org.apache.coyote.Abstrac 4 07-Apr-2017 15:48:50.137 信息 [main] Using a shared selector f 5 07-Apr-2017 15:48:50.172 测试 [main] Initializing ProtocolHand 6 07-Apr-2017 15:48:50.186 信息 [main] Using a shared selector f 7 07-Apr-2017 15:48:50.187 你猜 [main] load Initialization proce 8 07-Apr-2017 15:48:50.261 信息 [main] StandardService.startInte 9 07-Apr-2017 15:48:50.261 信息 [main] Servlet Engine: Apache To 10 07-Apr-2017 15:48:50.293 信息 [main] Starting ProtocolHandler#显示倒数第二行hisen@ubuntu:~/dl$ cat -n hisen.log | tail -n 2 25 [2017-04-07 03:49:04,907] Artifact ssm_study:war exploded: Art 26 [2017-04-07 03:49:04,907] Artifact ssm_study:war exploded: Dep#从24行开始，显示到最后hisen@ubuntu:~/dl$ cat -n hisen.log | tail -n +24 24 07-Apr-2017 15:49:04.585 信息 during time. 25 [2017-04-07 03:49:04,907] Artifact ssm_study:war exploded: Art 26 [2017-04-07 03:49:04,907] Artifact ssm_study:war exploded: Dep]]></content>
       <categories>
@@ -1558,9 +1558,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[mysql数据库安装官方自带employees测试库]]></title>
-    <url>%2F20170401-mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E8%A3%85%E5%AE%98%E6%96%B9%E8%87%AA%E5%B8%A6employees%E6%B5%8B%E8%AF%95%E8%A1%A8%2F</url>
-    <content type="text"><![CDATA[mysql官方是有一个自带的数据库，名为：Employees Sample Database官网介绍：Employees Sample Database表名中文department部门表dept_emp部门员工任职期表(按部门&amp;时期)dept_manager部门经理任职期表(按时期)employees员工详情表salaries员工薪资表(按时期)title员工职称表(按时期)导入的操作过程，在ubuntu上进行操作一、导入数据库操作过程12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879#ubuntu apt-get 安装的mysql默认的配置文件#添加一行：default-storage-engine=InnoDBhisen@ubuntu:/$ sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf#获取root权限hisen@ubuntu:/var/lib$ suPassword: #进数据库目录root@ubuntu:# cd /var/lib/mysql#删除两个文件root@ubuntu:/var/lib/mysql# rm ib_logfile0 root@ubuntu:/var/lib/mysql# rm ib_logfile1#重启数据库root@ubuntu:/# service mysql restart#下载Employees databasehisen@ubuntu:~/dl$ wget https://codeload.github.com/datacharmer/test_db/zip/master#解压hisen@ubuntu:~/dl$ unzip master#查看hisen@ubuntu:~/dl$ lltotal 35840drwxrwxr-x 3 hisen hisen 4096 Apr 1 16:50 ./drwxr-xr-x 10 hisen hisen 4096 Apr 1 16:40 ../-rw-rw-r-- 1 hisen hisen 36687570 Apr 1 16:30 masterdrwxrwxr-x 4 hisen hisen 4096 Oct 14 2015 test_db-master/#进目录hisen@ubuntu:~/dl$ cd test_db-master/#导入数据库hisen@ubuntu:~/dl/test_db-master$ mysql -u root -p &lt; employees.sqlEnter password: INFOCREATING DATABASE STRUCTUREINFOstorage engine: InnoDBINFOLOADING departmentsINFOLOADING employeesINFOLOADING dept_empINFOLOADING dept_managerINFOLOADING titlesINFOLOADING salariesdata_load_time_diff00:01:11#导入成功#验证是否导入成功hisen@ubuntu:~/dl/test_db-master$ mysql -u root -p &lt; test_employees_md5.sqlEnter password: INFOTESTING INSTALLATIONtable_name expected_records expected_crcemployees 300024 4ec56ab5ba37218d187cf6ab09ce1aa1departments 9 d1af5e170d2d1591d776d5638d71fc5fdept_manager 24 8720e2f0853ac9096b689c14664f847edept_emp 331603 ccf6fe516f990bdaa49713fc478701b7titles 443308 bfa016c472df68e70a03facafa1bc0a8salaries 2844047 fd220654e95aea1b169624ffe3fca934table_name found_records found_crcemployees 300024 4ec56ab5ba37218d187cf6ab09ce1aa1departments 9 d1af5e170d2d1591d776d5638d71fc5fdept_manager 24 8720e2f0853ac9096b689c14664f847edept_emp 331603 ccf6fe516f990bdaa49713fc478701b7titles 443308 bfa016c472df68e70a03facafa1bc0a8salaries 2844047 fd220654e95aea1b169624ffe3fca934table_name records_match crc_matchemployees OK okdepartments OK okdept_manager OK okdept_emp OK oktitles OK oksalaries OK okcomputation_time00:00:22summary resultCRC OKcount OK二、数据库练习练习题：点击查看练习题]]></content>
+    <title><![CDATA[MySQL 数据库安装官方自带employees测试库]]></title>
+    <url>%2F20170401-MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E8%A3%85%E5%AE%98%E6%96%B9%E8%87%AA%E5%B8%A6employees%E6%B5%8B%E8%AF%95%E8%A1%A8%2F</url>
+    <content type="text"><![CDATA[MySQL 官方是有一个自带的数据库，名为：Employees Sample Database官网介绍：Employees Sample Database表名中文department部门表dept_emp部门员工任职期表(按部门&amp;时期)dept_manager部门经理任职期表(按时期)employees员工详情表salaries员工薪资表(按时期)title员工职称表(按时期)导入的操作过程，在ubuntu上进行操作一、导入数据库操作过程12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879#ubuntu apt-get 安装的mysql默认的配置文件#添加一行：default-storage-engine=InnoDBhisen@ubuntu:/$ sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf#获取root权限hisen@ubuntu:/var/lib$ suPassword:#进数据库目录root@ubuntu:# cd /var/lib/mysql#删除两个文件root@ubuntu:/var/lib/mysql# rm ib_logfile0root@ubuntu:/var/lib/mysql# rm ib_logfile1#重启数据库root@ubuntu:/# service mysql restart#下载Employees databasehisen@ubuntu:~/dl$ wget https://codeload.github.com/datacharmer/test_db/zip/master#解压hisen@ubuntu:~/dl$ unzip master#查看hisen@ubuntu:~/dl$ lltotal 35840drwxrwxr-x 3 hisen hisen 4096 Apr 1 16:50 ./drwxr-xr-x 10 hisen hisen 4096 Apr 1 16:40 ../-rw-rw-r-- 1 hisen hisen 36687570 Apr 1 16:30 masterdrwxrwxr-x 4 hisen hisen 4096 Oct 14 2015 test_db-master/#进目录hisen@ubuntu:~/dl$ cd test_db-master/#导入数据库hisen@ubuntu:~/dl/test_db-master$ mysql -u root -p &lt; employees.sqlEnter password:INFOCREATING DATABASE STRUCTUREINFOstorage engine: InnoDBINFOLOADING departmentsINFOLOADING employeesINFOLOADING dept_empINFOLOADING dept_managerINFOLOADING titlesINFOLOADING salariesdata_load_time_diff00:01:11#导入成功#验证是否导入成功hisen@ubuntu:~/dl/test_db-master$ mysql -u root -p &lt; test_employees_md5.sqlEnter password:INFOTESTING INSTALLATIONtable_name expected_records expected_crcemployees 300024 4ec56ab5ba37218d187cf6ab09ce1aa1departments 9 d1af5e170d2d1591d776d5638d71fc5fdept_manager 24 8720e2f0853ac9096b689c14664f847edept_emp 331603 ccf6fe516f990bdaa49713fc478701b7titles 443308 bfa016c472df68e70a03facafa1bc0a8salaries 2844047 fd220654e95aea1b169624ffe3fca934table_name found_records found_crcemployees 300024 4ec56ab5ba37218d187cf6ab09ce1aa1departments 9 d1af5e170d2d1591d776d5638d71fc5fdept_manager 24 8720e2f0853ac9096b689c14664f847edept_emp 331603 ccf6fe516f990bdaa49713fc478701b7titles 443308 bfa016c472df68e70a03facafa1bc0a8salaries 2844047 fd220654e95aea1b169624ffe3fca934table_name records_match crc_matchemployees OK okdepartments OK okdept_manager OK okdept_emp OK oktitles OK oksalaries OK okcomputation_time00:00:22summary resultCRC OKcount OK二、数据库练习练习题：点击查看练习题]]></content>
       <categories>
         <category>mysql</category>
       </categories>
@@ -2394,9 +2394,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[linux常用的几个命令]]></title>
-    <url>%2F20170122-linux%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%A0%E4%B8%AA%E5%91%BD%E4%BB%A4%2F</url>
-    <content type="text"><![CDATA[1、查看日志最后几行1tail -100 /access.log2、进入目录相关12345678910#进入一个目录root@hisenyuan:/# cd /home/wwwlog/#进入当前目录下的www.google.com目录root@hisenyuan:/home/wwwlog# cd ./www.google.com#进入父目录 root@hisenyuan:/home/wwwlog/www.google.com# cd ../#进入linux系统根目录root@hisenyuan:/home/wwwlog# cd /#根目录root@hisenyuan:/#3、看倒数多少行1234#看倒数10行tail -10 /filepath/filename#看行数外加过滤含有指定字符的行tail -10 access.log | grep -v &quot;yourstring&quot;4、过滤特定行，保存结果到新文件1cat /root/old.text | grep -v &quot;yourstring&quot;&gt; /root/new.text]]></content>
+    <title><![CDATA[Linux常用的几个命令]]></title>
+    <url>%2F20170122-Linux%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%A0%E4%B8%AA%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[1、查看日志最后几行1tail -100 /access.log2、进入目录相关12345678910#进入一个目录root@hisenyuan:/# cd /home/wwwlog/#进入当前目录下的www.google.com目录root@hisenyuan:/home/wwwlog# cd ./www.google.com#进入父目录root@hisenyuan:/home/wwwlog/www.google.com# cd ../#进入linux系统根目录root@hisenyuan:/home/wwwlog# cd /#根目录root@hisenyuan:/#3、看倒数多少行1234#看倒数10行tail -10 /filepath/filename#看行数外加过滤含有指定字符的行tail -10 access.log | grep -v &quot;yourstring&quot;4、过滤特定行，保存结果到新文件1cat /root/old.text | grep -v &quot;yourstring&quot;&gt; /root/new.text]]></content>
       <tags>
         <tag>java</tag>
         <tag>linux</tag>
