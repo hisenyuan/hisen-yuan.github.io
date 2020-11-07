@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://hisen.me/20200226-find-a-good-way-to-learn/</loc>
+        <lastmod>2020-11-07T15:15:30.207Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://hisen.me/20201107-Shell-batch-decompression-and-rename/</loc>
         <lastmod>2020-11-07T15:09:05.337Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -257,14 +265,6 @@
     <url>
         <loc>http://hisen.me/20200406-self4j-logback-log4j-log-properties/</loc>
         <lastmod>2020-04-06T14:11:30.937Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://hisen.me/20200226-find-a-good-way-to-learn/</loc>
-        <lastmod>2020-02-26T14:13:33.726Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
