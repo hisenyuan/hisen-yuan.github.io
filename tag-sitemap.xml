@@ -541,13 +541,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/%E8%B4%A2%E5%AF%8C/</loc>
-        <lastmod>2020-05-17T10:37:44.114Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/%E7%8E%8B%E6%85%A7%E6%96%87/</loc>
         <lastmod>2020-07-22T22:25:12.411Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -592,13 +585,6 @@
     <url>
         <loc>http://hisen.me/tags/read/</loc>
         <lastmod>2020-09-16T01:49:22.549Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hisen.me/tags/%E9%9D%A2%E8%AF%95/</loc>
-        <lastmod>2020-09-16T01:52:14.270Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -674,13 +660,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/java/</loc>
-        <lastmod>2020-11-07T16:18:13.368Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/linux/</loc>
         <lastmod>2020-11-07T16:18:28.683Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -690,6 +669,27 @@
     <url>
         <loc>http://hisen.me/tags/redis/</loc>
         <lastmod>2020-11-09T01:39:05.624Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/java/</loc>
+        <lastmod>2020-12-18T05:42:43.486Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/%E9%9D%A2%E8%AF%95/</loc>
+        <lastmod>2020-12-18T05:42:43.486Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/%E8%B4%A2%E5%AF%8C/</loc>
+        <lastmod>2020-12-19T03:30:31.903Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
