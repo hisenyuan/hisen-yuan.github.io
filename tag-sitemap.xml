@@ -625,13 +625,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/%E9%9A%8F%E8%AF%B4/</loc>
-        <lastmod>2020-11-07T15:15:30.207Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/mysql/</loc>
         <lastmod>2020-11-07T15:30:15.291Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -690,6 +683,13 @@
     <url>
         <loc>http://hisen.me/tags/%E8%B4%A2%E5%AF%8C/</loc>
         <lastmod>2020-12-19T03:30:31.903Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/%E9%9A%8F%E8%AF%B4/</loc>
+        <lastmod>2021-01-30T02:48:58.021Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
