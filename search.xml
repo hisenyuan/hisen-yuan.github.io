@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>计算机科学的自我修炼</title>
+      <link href="/20210219-teach-or-improve-yourself-computer-science/"/>
+      <url>/20210219-teach-or-improve-yourself-computer-science/</url>
+      <content type="html"><![CDATA[<!-- build time:Sat Feb 20 2021 09:53:03 GMT+0800 (China Standard Time) --><h1 id="零、背景"><a href="#零、背景" class="headerlink" title="零、背景"></a>零、背景</h1><p>近一年，看了几本书感觉对我更深入理解 CS，促使我更关注底层原理。<br>《计算机网络：自顶向下方法》<br>《操作系统精髓与设计原理》<br>《Java性能优化权威指南》<br>《性能之巅》<br>《Redis运维与开发》</p><p><strong>所以想着再在底层相关的主题上继续深入学习</strong><br>于是误打误撞，来到了之前在 GitHub 关注的一个『自学计算机科学』仓库</p><p>很赞同下面这个观点<br>软件工程师分为两种：</p><ol><li>一种充分理解了计算机科学，从而有能力应对充满挑战的创造性工作；</li><li>另一种仅仅凭着对一些高级工具的熟悉而勉强应付。</li></ol><p>这两种人都自称软件工程师，都能在职业生涯早期挣到差不多的工资。<br>然而，随着时间流逝，第一种工程师不断成长，所做的事情将会越来越有意义且更为高薪，<br>不论是有价值的商业工作、突破性的开源项目、技术上的领导力或者高质量的个人贡献。</p><h1 id="一、资源"><a href="#一、资源" class="headerlink" title="一、资源"></a>一、资源</h1><h2 id="1-1-摘要"><a href="#1-1-摘要" class="headerlink" title="1.1 摘要"></a>1.1 摘要</h2><a id="more"></a><table><thead><tr><th>科目</th><th>为何要学</th><th>最佳书籍</th><th>最佳视频</th></tr></thead><tbody><tr><td>编程</td><td>不要做一个“永远没彻底搞懂”诸如递归等概念的程序员。</td><td>《计算机程序的构造和解释》</td><td>Brian Harvey’s Berkeley CS 61A</td></tr><tr><td>计算机架构</td><td>如果你对于计算机如何工作没有具体的概念，那么你所做出的所有高级抽象都是空中楼阁。</td><td>《深入理解计算机系统》</td><td>Berkeley CS 61C</td></tr><tr><td>算法与数据结构</td><td>如果你不懂得如何使用栈、队列、树、图等常见数据结构，遇到有难度的问题时，你将束手无策。</td><td>《算法设计手册》</td><td>Steven Skiena’s lectures</td></tr><tr><td>数学知识</td><td>计算机科学基本上是应用数学的一个“跑偏的”分支，因此学习数学将会给你带来竞争优势。</td><td>《计算机科学中的数学》</td><td>Tom Leighton’s MIT 6.042J</td></tr><tr><td>操作系统</td><td>你所写的代码，基本上都由操作系统来运行，因此你应当了解其运作的原理。</td><td>《操作系统导论》</td><td>Berkeley CS 162</td></tr><tr><td>计算机网络</td><td>互联网已然势不可挡：理解工作原理才能解锁全部潜力。</td><td>《计算机网络：自顶向下方法》</td><td>Stanford CS 144</td></tr><tr><td>数据库</td><td>对于多数重要程序，数据是其核心，然而很少人理解数据库系统的工作原理。</td><td>《Readings in Database Systems》 （暂无中译本）</td><td>Joe Hellerstein’s Berkeley CS 186</td></tr><tr><td>编程语言与编译器</td><td>若你懂得编程语言和编译器如何工作，你就能写出更好的代码，更轻松地学习新的编程语言。</td><td>《Crafting Interpreters》</td><td>Alex Aiken’s course on Lagunita</td></tr><tr><td>分布式系统</td><td>如今，多数 系统都是分布式的。</td><td>《数据密集型应用系统设计》</td><td>MIT 6.824</td></tr></tbody></table><h2 id="1-2-详情"><a href="#1-2-详情" class="headerlink" title="1.2 详情"></a>1.2 详情</h2><p>内容值得一看，真心建议多花功夫学好底层知识。<br>原文：<a href="https://teachyourselfcs.com/" target="_blank" rel="noopener">Teach Yourself Computer Science</a><br>翻译：<a href="https://github.com/keithnull/TeachYourselfCS-CN/blob/master/TeachYourselfCS-CN.md" target="_blank" rel="noopener">自学计算机科学</a></p><p>来自亚马逊 CTO 的博文也值得一看，操作系统经典书籍<br><a href="https://www.allthingsdistributed.com/2020/07/the-os-classics.html" target="_blank" rel="noopener">The OS Classics</a></p><h1 id="三、相关资源"><a href="#三、相关资源" class="headerlink" title="三、相关资源"></a>三、相关资源</h1><p><a href="https://hisen.me/20200805-software-engineer-interview-guide/">软件工程师面试指引</a></p><!-- rebuild by neat -->]]></content>
+      
+      <categories>
+          
+          <category> 成长 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>春节期间的收获 | 记第一次在外过年</title>
       <link href="/20210218-harvest-during-chinese-spring-festival/"/>
       <url>/20210218-harvest-during-chinese-spring-festival/</url>
