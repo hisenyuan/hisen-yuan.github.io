@@ -667,13 +667,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/%E9%9A%8F%E8%AF%B4/</loc>
-        <lastmod>2021-02-19T02:46:26.535Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/%E9%9D%A2%E8%AF%95/</loc>
         <lastmod>2021-02-20T01:59:52.722Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -697,6 +690,13 @@
     <url>
         <loc>http://hisen.me/tags/cs/</loc>
         <lastmod>2021-03-06T02:38:06.911Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/%E9%9A%8F%E8%AF%B4/</loc>
+        <lastmod>2021-03-06T03:02:33.364Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
