@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[JVM序列-MetaSpace(元空间)]]></title>
     <url>%2F20210430-jvm-series-metaspace%2F</url>
-    <content type="text"><![CDATA[一、结论JDK8 因未指定 MetaSpace 大小，不断突破当前最高水位(默认21M)导致 Full gc;二、问题应用启动时出现 full gc;gc日志重点：GC (Metadata GC Threshold) [PSYoungGen: 354024K-&gt;15340K(1376256K)三、排查过程待补充四、背景知识Metaspace整体介绍]]></content>
+    <content type="text"><![CDATA[一、结论JDK8 因未指定 MetaSpace 大小，程序启动时(元空间最后稳定在90M)超过初始高水位(默认21M)导致 Full gc;二、问题应用启动时出现 full gc;gc日志重点：GC (Metadata GC Threshold) [PSYoungGen: 354024K-&gt;15340K(1376256K)三、排查过程待补充四、背景知识Metaspace整体介绍]]></content>
       <categories>
         <category>java</category>
       </categories>
