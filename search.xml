@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JVM序列-MetaSpace(元空间)]]></title>
+    <url>%2F20210430-jvm-series-metaspace%2F</url>
+    <content type="text"><![CDATA[一、结论JDK8 因未指定 MetaSpace 大小，不断突破当前最高水位(默认21M)导致 Full gc;二、问题应用启动时出现 full gc;gc日志重点：GC (Metadata GC Threshold) [PSYoungGen: 354024K-&gt;15340K(1376256K)三、排查过程待补充四、背景知识Metaspace整体介绍]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>jvm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[关于中断]]></title>
     <url>%2F20210306-about-interrupt%2F</url>
     <content type="text"><![CDATA[一、中断的解释网络中断（Interrupt）是指 处理器接收到来自硬件或软件的信号，提示发生了某个事件，应该被注意，这种情况就称为中断。软中断 (form 《UNIX 操作系统设计》)内核在收到软中断信号的进程上下文中处理软中断信号，因此进程必须运行以便处理信号。处理软中断信号的方式：进程忽略软中断信号;进程收到软中断信号后退出;进程收到信号后执行一个特殊的(用户)函数;二、Java 的中断Java API 中线程相关的方法主要有三个：123456// 中断当前线程，仅设置中断标识位。public void interrupt()// 线程的中断标识位是否被标记public static boolean interrupted()// 类似 interrupted，无论之前是否被中断，都不会清空中断标识位public boolean isInterrupted()Java 中不推荐使用抢断式中断，倡导：一个线程的生命不应该由其他线程终止，应当由它自己选择是否停止。12345try &#123; // 业务代码&#125; catch (InterruptedException e) &#123; // 可选:退出 | 忽略 | 执行相关逻辑&#125;三、扩展中断有优先级，在处理高优先级中断时，会屏蔽低优先级的中断。四、参考《UNIX 操作系统设计》线程的中断]]></content>
