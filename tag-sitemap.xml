@@ -695,15 +695,15 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/jvm/</loc>
-        <lastmod>2021-04-30T15:20:09.279Z</lastmod>
+        <loc>http://hisen.me/tags/java/</loc>
+        <lastmod>2021-05-11T02:53:05.668Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/java/</loc>
-        <lastmod>2021-05-11T02:42:37.672Z</lastmod>
+        <loc>http://hisen.me/tags/jvm/</loc>
+        <lastmod>2021-05-11T02:53:05.668Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
