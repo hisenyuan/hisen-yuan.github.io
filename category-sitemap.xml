@@ -147,13 +147,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/categories/database/</loc>
-        <lastmod>2020-11-07T15:32:32.715Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/categories/linux/</loc>
         <lastmod>2020-11-07T16:18:28.683Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -189,8 +182,15 @@
     </url>
 
     <url>
+        <loc>http://hisen.me/categories/database/</loc>
+        <lastmod>2021-05-18T02:54:01.481Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://hisen.me/categories/java/</loc>
-        <lastmod>2021-05-11T02:53:05.668Z</lastmod>
+        <lastmod>2021-05-18T02:57:41.349Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
