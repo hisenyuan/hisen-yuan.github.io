@@ -47,7 +47,7 @@
   <entry>
     <title><![CDATA[JVM序列-MetaSpace(元空间)]]></title>
     <url>%2F20210430-jvm-series-metaspace%2F</url>
-    <content type="text"><![CDATA[一、结论JDK8 因未指定 MetaSpace 大小，程序启动过程中元空间不够用，触发 full gc。详细如下：JDK8 因未指定 MetaSpace 大小，默认初始大小约 21M程序启动，元空间大小占用稳定在 90M因为超过了默认元空间大小，导致元空间扩容(每次扩容会 full gc)从 GC 日志来看，每次元空间扩容都是增加 20M 左右，所以程序启动时 full gc 4 次二、问题应用启动时出现 full gc;gc日志重点：GC (Metadata GC Threshold) [PSYoungGen: 354024K-&gt;15340K(1376256K)三、排查过程待补充四、背景知识Metaspace整体介绍]]></content>
+    <content type="text"><![CDATA[一、结论JDK8 因未指定 MetaSpace 大小，程序启动过程中元空间不够用，触发 full gc。详细如下：JDK8 因未指定 MetaSpace 大小，默认初始大小约 21M程序启动，元空间大小占用稳定在 90M因为超过了默认元空间大小，导致元空间扩容(每次扩容会 full gc)从 GC 日志来看，每次元空间扩容都是增加 20M 左右，所以程序启动时 full gc 4 次二、问题应用启动时出现 full gc;gc日志重点：GC (Metadata GC Threshold) [PSYoungGen: 354024K-&gt;15340K(1376256K)三、排查过程启动过程中，出现了 JVM Full GC 告警。由于启动过程中之前没有遇到这种情况，找不到其它原因。于是修改 JVM 参数，增加 GC 日志，于是就看到了『二』中的内容。看原因是元空间内存不够大导致的通过 GC 日志可以看到元空间实际占用大小，100M于是调整 JVM 元空间大小至 128M，问题解决。问题是解决了，但是原因是什么呢？在结论部分已经讲了，这里不重复。所谓知其然，更要知其所以然。只有这样才能明白问题的本质，学到知识。四、背景知识Metaspace整体介绍]]></content>
       <categories>
         <category>java</category>
       </categories>

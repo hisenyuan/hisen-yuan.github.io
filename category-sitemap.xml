@@ -168,13 +168,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/categories/java/</loc>
-        <lastmod>2021-06-05T16:00:55.835Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/categories/%E6%88%90%E9%95%BF/</loc>
         <lastmod>2021-06-05T16:13:05.695Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -184,6 +177,13 @@
     <url>
         <loc>http://hisen.me/categories/read/</loc>
         <lastmod>2021-06-12T16:31:27.863Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/categories/java/</loc>
+        <lastmod>2021-06-12T16:41:45.446Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://hisen.me/20210430-jvm-series-metaspace/</loc>
+        <lastmod>2021-06-12T16:41:45.446Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://hisen.me/20210613-reaction-of-the-fenix-project/</loc>
         <lastmod>2021-06-12T16:31:27.863Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -73,14 +81,6 @@
     <url>
         <loc>http://hisen.me/20210518-troubleshooting-unbalanced-of-redis-cluster-slots/</loc>
         <lastmod>2021-05-18T02:54:01.481Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://hisen.me/20210430-jvm-series-metaspace/</loc>
-        <lastmod>2021-05-11T02:53:05.668Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
