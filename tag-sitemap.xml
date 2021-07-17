@@ -58,13 +58,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/%E6%94%AF%E4%BB%98/</loc>
-        <lastmod>2017-02-13T14:04:50.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/PLSQL/</loc>
         <lastmod>2017-02-14T01:42:30.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -380,13 +373,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/%E7%A9%BF%E5%B8%83%E9%9E%8B%E7%9A%84%E9%A9%AC%E4%BA%91/</loc>
-        <lastmod>2018-10-02T16:36:11.006Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/jsonwebtoken/</loc>
         <lastmod>2018-10-15T06:20:58.603Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -473,20 +459,6 @@
     <url>
         <loc>http://hisen.me/tags/%E5%BC%82%E5%B8%B8/</loc>
         <lastmod>2019-04-29T09:00:56.971Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hisen.me/tags/%E8%AF%BB%E4%B9%A6/</loc>
-        <lastmod>2019-09-04T13:06:32.191Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hisen.me/tags/%E5%AE%89%E5%85%A8/</loc>
-        <lastmod>2019-10-25T16:00:47.157Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -604,13 +576,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/oracle/</loc>
-        <lastmod>2020-11-07T15:32:00.164Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/sql/</loc>
         <lastmod>2020-11-07T15:32:32.715Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -704,6 +669,41 @@
     <url>
         <loc>http://hisen.me/tags/read/</loc>
         <lastmod>2021-07-17T16:49:33.889Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/%E6%94%AF%E4%BB%98/</loc>
+        <lastmod>2021-07-17T17:05:45.578Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/oracle/</loc>
+        <lastmod>2021-07-17T17:07:02.706Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/%E7%A9%BF%E5%B8%83%E9%9E%8B%E7%9A%84%E9%A9%AC%E4%BA%91/</loc>
+        <lastmod>2021-07-17T17:07:33.366Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/%E8%AF%BB%E4%B9%A6/</loc>
+        <lastmod>2021-07-17T17:08:03.371Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/%E5%AE%89%E5%85%A8/</loc>
+        <lastmod>2021-07-17T17:08:36.031Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
