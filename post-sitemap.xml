@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>http://hisen.me/20200805-software-engineer-interview-guide/</loc>
+        <lastmod>2021-07-25T04:39:14.356Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://hisen.me/20210605-About-learning-English/</loc>
+        <lastmod>2021-07-18T04:35:04.353Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://hisen.me/20191023-%E4%B8%9A%E5%8A%A1%E5%AE%89%E5%85%A8%E7%9A%84%E8%B5%84%E6%BA%90%E5%B1%82%E6%94%BB%E9%98%B2%E4%BB%8B%E7%BB%8D/</loc>
         <lastmod>2021-07-17T17:08:36.031Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -65,14 +81,6 @@
     <url>
         <loc>http://hisen.me/20210613-reaction-of-the-fenix-project/</loc>
         <lastmod>2021-06-12T16:31:27.863Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://hisen.me/20210605-About-learning-English/</loc>
-        <lastmod>2021-06-05T16:13:05.695Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -169,14 +177,6 @@
     <url>
         <loc>http://hisen.me/20200201-how-i-fell-in-love-with-reading/</loc>
         <lastmod>2021-02-20T06:12:37.210Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://hisen.me/20200805-software-engineer-interview-guide/</loc>
-        <lastmod>2021-02-20T01:59:52.722Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
