@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Java 文件读取，部分中文乱码]]></title>
+    <url>%2F20210731-File-reading_part-of-Chinese-garbled-code%2F</url>
+    <content type="text"><![CDATA[一、背景最近做项目有一个地址库文件需要放在后端由于文件在 jar 包中的问题，一些读取文件的姿势失效(方便的 Guava Files)最后通过 getResourceAsStream 解决接下来遇到了一件奇怪的事情，部分汉字乱码了，调整编码，重新编辑汉字都试过了，无法解决。最后求助于百度搜索，得到了一些有效的信息。汉字是两个字节的，如果每次读固定个字节，可能会把汉字截断，造成乱码。再次印证了基础知识的重要性！二、相关代码2.1 罪魁祸首利用缓冲区读取文件，会出现边界情况下把汉字分割成两次来读。123456789101112131415private static String getAddressJson(String path) throws IOException &#123; log.info("cacheFile start. PATH:&#123;&#125;", path); InputStream resourceAsStream = Address.class.getClassLoader().getResourceAsStream(path); StringBuilder sb = new StringBuilder(); byte[] buf = new byte[10240]; int length; while ((length = Objects.requireNonNull(resourceAsStream).read(buf)) != -1) &#123; // 此处 new String 放进去了一半中文字符，导致乱码 sb.append(new String(buf, 0, length, StandardCharsets.UTF_8)); &#125; resourceAsStream.close(); return sb.toString();&#125;2.2 完美运行据说现在很多人没法纯手写通过流读取文件了…(说的就是我!)12345678910111213private static String getAddressJson(String path) throws IOException &#123; log.info("cacheFile start. PATH:&#123;&#125;", path); InputStream resourceAsStream = Address.class.getClassLoader().getResourceAsStream(path); StringBuilder sb = new StringBuilder(); InputStreamReader isr = new InputStreamReader(Objects.requireNonNull(resourceAsStream)); BufferedReader br = new BufferedReader(isr); String newLine; while ((newLine = br.readLine()) != null) &#123; sb.append(newLine); &#125; resourceAsStream.close(); return sb.toString();&#125;三、参考文章CSDNInputStream 、InputStreamReader 和 BufferedReaderJava 读取文件里面部分汉字内容乱码]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[二进制的应用]]></title>
     <url>%2F20210726-use-of-binary%2F</url>
     <content type="text"><![CDATA[一、背景之前京东组里有同事使用二进制优化支付密码打标性能(大促 QPS 数百万)，节省内存资源。随说：存二进制报文小，传输快，反序列化快(之前存 JSON 对象)，节省缓存。目前公司遇到个套餐打标，也通过二进制实现简单高效得解决掉了。随说：目前倒不是要求性能，只是这么设计扩展性好，操作简单。知识点：二进制、与运算二、设计打标，无非就是识别某个东西是不是包含某些属性。那么有什么好的办法能做到通用与高效？如果固定映射，扩展性不好，查询逻辑费劲，存储成本偏高。目前相对较好的方案是通过二进制位来做标记，再结合与运算，快速找出数据。随说：Java MySQL 均支持与运算套餐VIP1VIP2VIP3标记值A1117B1106C1004如上表所示，相应套餐的购买资格标记。A 套餐所有会有均可购买B 套餐 VIP3 不能购买C 套餐仅 VIP1 可购买对相关标记进行入库处理：A=7，B=6，C=4；正常思维，需要存三个字段，没有扩展性，性能还差。使用二进制，结合与运算，降本(计算、传输、匹配)增效(性能提升)。三、代码12345678910111213public static void main(String[] args) &#123; Integer a = 7; Integer b = 6; Integer c = 4; List&lt;Integer&gt; suit = Lists.newArrayList(a, b, c); System.out.printf("支持 VIP1 (0100=4)的套餐:" + Arrays.toString(suit.stream().filter(e -&gt; (4 &amp; e) != 0).toArray())); System.out.printf("支持 VIP2 (0010=2)的套餐:" + Arrays.toString(suit.stream().filter(e -&gt; (2 &amp; e) != 0).toArray())); System.out.printf("支持 VIP3 (0001=1)的套餐:" + Arrays.toString(suit.stream().filter(e -&gt; (1 &amp; e) != 0).toArray()));// 支持 VIP1 (0100=4)的套餐:[7, 6, 4]// 支持 VIP2 (0010=2)的套餐:[7, 6]// 支持 VIP3 (0001=1)的套餐:[7]&#125;四、总结系统流量小的时候粗糙烂制也不是不能用但是当系统流量大了就得想办法优化：CPU、传输、存储很多时候往往利用简单的原理解决大的问题，只是很多时候限于认知不知道可以这么用。说到底还是要知其然，更要知其所以然。]]></content>
@@ -536,8 +547,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Linux 命令统计出现次数前10的次数和IP | awk sort uniq]]></title>
-    <url>%2F20190410-Linux%E5%91%BD%E4%BB%A4%E7%BB%9F%E8%AE%A1%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E5%89%8D10%E7%9A%84%E6%AC%A1%E6%95%B0%E5%92%8CIP%20%7C%20awk%20sort%20unip%E7%AD%89%E7%BB%84%E5%90%88%2F</url>
+    <title><![CDATA[Linux 日志分析出现次数前10的数据 | awk sort uniq]]></title>
+    <url>%2F20190410-Linux-log-analyze-top-10%2F</url>
     <content type="text"><![CDATA[一、命令组合1234$ more sort.log | awk &apos;&#123;print $1&#125;&apos; | sort | uniq -c | sort -k1nr | head -3 4 5 3 1 2 2二、命令详解more：一次读取少量的数据，避免一次性载入大文件，比cat好些awk ‘{print $1}’：以awk默认的分隔符，并且打印第一列sort：把上一步的结果按ASCII排序uniq -c：如果重复那么计数，uniq命令可以组合很多其它参数sort -k1nr：根据第一列的数据进行排序，n是按数值大小排序，r是倒序排序head -3：显示前面三行数据三、原始数据12345678910111213141516$ cat sort.log123456112345556]]></content>
       <categories>
         <category>linux</category>

@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>http://hisen.me/20210731-File-reading_part-of-Chinese-garbled-code/</loc>
+        <lastmod>2021-07-31T06:54:45.789Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://hisen.me/20190410-Linux-log-analyze-top-10/</loc>
+        <lastmod>2021-07-31T06:41:04.433Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://hisen.me/20210726-use-of-binary/</loc>
         <lastmod>2021-07-26T06:13:34.482Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -233,14 +249,6 @@
     <url>
         <loc>http://hisen.me/20170503-Linux%E5%AE%89%E8%A3%85tree%E5%91%BD%E4%BB%A4%20-%20apt-get%20install%20tree/</loc>
         <lastmod>2020-11-07T16:17:54.664Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://hisen.me/20190410-Linux%E5%91%BD%E4%BB%A4%E7%BB%9F%E8%AE%A1%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E5%89%8D10%E7%9A%84%E6%AC%A1%E6%95%B0%E5%92%8CIP%20%7C%20awk%20sort%20unip%E7%AD%89%E7%BB%84%E5%90%88/</loc>
-        <lastmod>2020-11-07T16:17:24.674Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
