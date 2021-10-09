@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Java JVM 工具与知识 | JVM 调优]]></title>
+    <url>%2F20211009-jvm-tool-and-knowledge%2F</url>
+    <content type="text"><![CDATA[一、背景曾经整理过一个帖子，不过是在公司内网。今天突然想起，博客上零散的 jvm 相关内容，但未系统整理相关知识和工具，遂写一篇文章。学习的过程需要不断发现好的资源，深入钻研某个领域。二、知识2.1 图书《深入理解 Java 虚拟机》《Java 性能优化权威指南》《性能之巅》2.2 文档Java Language and Virtual Machine Specifications2.3 文章【译】深入理解G1的GC日志（一）从实际案例聊聊Java应用的GC优化JVM CPU Profiler技术原理及源码深度解析Java Hotspot G1 GC的一些关键技术Java中9种常见的CMS GC问题分析与解决新一代垃圾回收器ZGC的探索与实践Java Hotspot G1 GC的一些关键技术三、工具JVM参数优化(创业者来自阿里性能团队)gc日志在线分析Java Thread Dump AnalyzerJava &amp; Android Heap Dump Analyzer]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>jvm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Java 文件读取，部分中文乱码 - 分析与解决]]></title>
     <url>%2F20210731-File-reading-part-of-Chinese-garbled-code%2F</url>
     <content type="text"><![CDATA[一、背景最近做项目有一个地址库文件需要放在后端由于文件在 jar 包中的问题，一些读取文件的姿势失效(方便的 Guava Files)最后通过 getResourceAsStream 解决接下来遇到了一件奇怪的事情，部分汉字乱码了，调整编码，重新编辑汉字都试过了，无法解决。最后求助于百度搜索，得到了一些有效的信息。汉字是两个字节的，如果每次读固定个字节，可能会把汉字截断，造成乱码。再次印证了基础知识的重要性！二、相关代码2.1 罪魁祸首利用缓冲区读取文件，会出现边界情况下把汉字分割成两次来读。123456789101112131415private static String getAddressJson(String path) throws IOException &#123; log.info("cacheFile start. PATH:&#123;&#125;", path); InputStream resourceAsStream = Address.class.getClassLoader().getResourceAsStream(path); StringBuilder sb = new StringBuilder(); byte[] buf = new byte[10240]; int length; while ((length = Objects.requireNonNull(resourceAsStream).read(buf)) != -1) &#123; // 此处 new String 放进去了一半中文字符，导致乱码 sb.append(new String(buf, 0, length, StandardCharsets.UTF_8)); &#125; resourceAsStream.close(); return sb.toString();&#125;2.2 完美运行据说现在很多人没法纯手写通过流读取文件了…(说的就是我!)12345678910111213private static String getAddressJson(String path) throws IOException &#123; log.info("cacheFile start. PATH:&#123;&#125;", path); InputStream resourceAsStream = Address.class.getClassLoader().getResourceAsStream(path); StringBuilder sb = new StringBuilder(); InputStreamReader isr = new InputStreamReader(Objects.requireNonNull(resourceAsStream)); BufferedReader br = new BufferedReader(isr); String newLine; while ((newLine = br.readLine()) != null) &#123; sb.append(newLine); &#125; resourceAsStream.close(); return sb.toString();&#125;三、参考文章CSDNInputStream 、InputStreamReader 和 BufferedReaderJava 读取文件里面部分汉字内容乱码]]></content>

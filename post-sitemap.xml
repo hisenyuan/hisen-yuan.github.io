@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://hisen.me/20211009-jvm-tool-and-knowledge/</loc>
+        <lastmod>2021-10-09T03:54:55.129Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://hisen.me/20210731-File-reading-part-of-Chinese-garbled-code/</loc>
         <lastmod>2021-07-31T07:31:05.687Z</lastmod>
         <changefreq>weekly</changefreq>
