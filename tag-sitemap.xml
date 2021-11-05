@@ -513,13 +513,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/soft/</loc>
-        <lastmod>2020-09-16T01:41:30.696Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/github/</loc>
         <lastmod>2020-09-16T01:47:45.628Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -695,15 +688,22 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/java/</loc>
+        <loc>http://hisen.me/tags/jvm/</loc>
         <lastmod>2021-10-09T03:54:55.129Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/jvm/</loc>
-        <lastmod>2021-10-09T03:54:55.129Z</lastmod>
+        <loc>http://hisen.me/tags/java/</loc>
+        <lastmod>2021-11-05T09:37:52.682Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/soft/</loc>
+        <lastmod>2021-11-05T09:37:52.682Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
