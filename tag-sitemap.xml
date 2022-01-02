@@ -590,13 +590,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/%E9%9A%8F%E8%AF%B4/</loc>
-        <lastmod>2021-03-06T03:02:33.364Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/redis/</loc>
         <lastmod>2021-05-18T02:54:01.481Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -704,6 +697,13 @@
     <url>
         <loc>http://hisen.me/tags/java/</loc>
         <lastmod>2021-11-12T10:09:16.154Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/%E9%9A%8F%E8%AF%B4/</loc>
+        <lastmod>2022-01-02T12:29:44.466Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
