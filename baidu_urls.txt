@@ -1,1 +1,1 @@
-http://hisen.me/20220102-Looking-back-to-2021-looking-forward-to-2022/
+http://hisen.me/20220206-about-learning-rust/
