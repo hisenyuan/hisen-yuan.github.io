@@ -1,1 +1,1 @@
-http://hisen.me/20220206-about-learning-rust/
+http://hisen.me/20220218-divide-barrels-gracefully/
