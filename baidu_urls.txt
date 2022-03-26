@@ -1,1 +1,1 @@
-http://hisen.me/20220218-divide-barrels-gracefully/
+http://hisen.me/20220326-Get-to-know-spring-AOP-and-BeanPostProcess/
