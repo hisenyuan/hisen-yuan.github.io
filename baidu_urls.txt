@@ -1,1 +1,1 @@
-http://hisen.me/20220326-Get-to-know-spring-AOP-and-BeanPostProcess/
+http://hisen.me/20220523-redis_dev_ops/
