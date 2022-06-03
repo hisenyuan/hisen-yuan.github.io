@@ -1,1 +1,1 @@
-http://hisen.me/20220528-baidu-map-api-address-to-longitude-and-latitude/
+http://hisen.me/20220603-shell-and-expect-for-mysql-auto-login/

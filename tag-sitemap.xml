@@ -548,20 +548,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/shell/</loc>
-        <lastmod>2020-11-07T15:09:05.337Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://hisen.me/tags/mysql/</loc>
-        <lastmod>2020-11-07T15:30:15.291Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/sql/</loc>
         <lastmod>2020-11-07T15:32:32.715Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -711,6 +697,20 @@
     <url>
         <loc>http://hisen.me/tags/java/</loc>
         <lastmod>2022-05-30T07:09:16.561Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/mysql/</loc>
+        <lastmod>2022-06-03T09:13:15.164Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/shell/</loc>
+        <lastmod>2022-06-03T09:13:15.164Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
