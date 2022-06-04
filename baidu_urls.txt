@@ -1,1 +1,1 @@
-http://hisen.me/20220603-shell-and-expect-for-mysql-auto-login/
+http://hisen.me/20220604-bj-unicom-optical-modem-change-to-bridge-and-set-ipv6/

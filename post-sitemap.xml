@@ -7,8 +7,8 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/20220603-shell-and-expect-for-mysql-auto-login/</loc>
-        <lastmod>2022-06-03T09:13:15.164Z</lastmod>
+        <loc>http://hisen.me/20220604-bj-unicom-optical-modem-change-to-bridge-and-set-ipv6/</loc>
+        <lastmod>2022-06-04T11:55:27.237Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -16,7 +16,15 @@
 
     <url>
         <loc>http://hisen.me/20220528-baidu-map-api-address-to-longitude-and-latitude/</loc>
-        <lastmod>2022-05-30T07:09:16.561Z</lastmod>
+        <lastmod>2022-06-03T15:40:46.701Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://hisen.me/20220603-shell-and-expect-for-mysql-auto-login/</loc>
+        <lastmod>2022-06-03T09:13:15.164Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
