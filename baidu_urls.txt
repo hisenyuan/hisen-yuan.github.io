@@ -1,1 +1,1 @@
-http://hisen.me/20221030-OpenWrt_22.03_install_passwall/
+http://hisen.me/20221030-OpenWrt_NETGEAR_R8000_use_USB_flash_disk_to_expand_overlay/
