@@ -1,1 +1,1 @@
-http://hisen.me/20220717-about-data-consistency/
+http://hisen.me/20221030-OpenWrt_22.03_install_passwall/
