@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://hisen.me/20221114-go_home_by_cloudflare_via_openwrt/</loc>
+        <lastmod>2022-11-14T15:27:31.139Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://hisen.me/20221030-OpenWrt_NETGEAR_R8000_use_USB_flash_disk_to_expand_overlay/</loc>
         <lastmod>2022-10-30T14:48:07.477Z</lastmod>
         <changefreq>weekly</changefreq>

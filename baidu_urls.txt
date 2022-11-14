@@ -1,1 +1,1 @@
-http://hisen.me/20221030-OpenWrt_NETGEAR_R8000_use_USB_flash_disk_to_expand_overlay/
+http://hisen.me/20221114-go_home_by_cloudflare_via_openwrt/
