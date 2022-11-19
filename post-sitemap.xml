@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://hisen.me/20221119-synology-DS918-add-2500M-RTL8156B-usb-network-cart/</loc>
+        <lastmod>2022-11-19T02:48:39.663Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://hisen.me/20221114-go_home_by_cloudflare_via_openwrt/</loc>
         <lastmod>2022-11-14T15:27:31.139Z</lastmod>
         <changefreq>weekly</changefreq>
