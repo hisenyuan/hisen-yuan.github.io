@@ -709,13 +709,6 @@
     </url>
 
     <url>
-        <loc>http://hisen.me/tags/java/</loc>
-        <lastmod>2022-06-03T15:40:46.701Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hisen.me/tags/IPv6/</loc>
         <lastmod>2022-06-04T11:55:27.237Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -753,6 +746,13 @@
     <url>
         <loc>http://hisen.me/tags/NAS/</loc>
         <lastmod>2022-11-19T02:48:39.663Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hisen.me/tags/java/</loc>
+        <lastmod>2023-02-26T13:19:09.042Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
