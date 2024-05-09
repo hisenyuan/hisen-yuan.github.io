@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://hisen.me/20230423-build-my-first-server/</loc>
+        <lastmod>2024-05-09T14:03:47.206Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://hisen.me/20240509-Reflection-on-Computer-Science-and-Technology/</loc>
         <lastmod>2024-05-09T13:43:27.090Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -41,14 +49,6 @@
     <url>
         <loc>http://hisen.me/20231231-Looking-back-to-2023-looking-forward-to-2024/</loc>
         <lastmod>2023-12-31T16:33:48.317Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://hisen.me/20230423-build-my-first-server/</loc>
-        <lastmod>2023-12-31T10:53:09.380Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
