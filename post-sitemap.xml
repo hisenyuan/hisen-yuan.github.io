@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://hisen.me/20190801-%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87%E7%9A%84%E5%90%AB%E4%B9%89%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%96%B9%E5%BC%8F:TP50%E3%80%81TP90%E3%80%81TP99%E3%80%81TP999/</loc>
+        <lastmod>2024-06-04T06:09:44.305Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://hisen.me/20230423-build-my-first-server/</loc>
         <lastmod>2024-05-09T14:03:47.206Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -793,14 +801,6 @@
     <url>
         <loc>http://hisen.me/20190804-resteasy%20fastjson%E7%89%88%E6%9C%AC%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98/</loc>
         <lastmod>2019-08-04T16:07:37.694Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://hisen.me/20190801-%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87%E7%9A%84%E5%90%AB%E4%B9%89%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%96%B9%E5%BC%8F:TP50%E3%80%81TP90%E3%80%81TP99%E3%80%81TP999/</loc>
-        <lastmod>2019-08-01T06:30:57.058Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
